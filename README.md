@@ -2,6 +2,8 @@
 # FreePIE Joystick Mapper
 A bundle of scripts that operates together to offer mapping functionalities to your joystick with the help of [FreePIE](http://andersmalmgren.github.io/FreePIE/) and [vJoy](https://sourceforge.net/projects/vjoystick/).
 
+![Intro](./_res/intro.png)
+
 ## IMPORTANT: State of the project
 Before going further, it is important to realise the state of this project. The project is currently **unmaintained and will probably be kept as is**.
 
@@ -9,7 +11,7 @@ The fate of the project comes from a frustration to work with FreePIE' constrain
 
 As I need a sane development environment I decided a long time ago to stop the production of this project and redo it with my own tools from scratch (upcoming project in Rust). In the meantime I decided to release the project to the public so anyone can explore it if wanted.
 
-The project is very well usable (a lot of effort was spent to control errors): I use it myself for my gaming needs as you'll be able to see in the profiles folder. However, it is not totally documented and organized as I envisioned it. It is foremost meant for people who knows how to handle basic python and can see where I was going on with the design.
+The project is very well usable (a lot of effort was spent to control errors): I use it myself for my gaming needs as you'll be able to see in the profiles folder. However, it is not totally documented and organized as I envisioned it. It is foremost meant for people who knows how to handle python and can see where I was going on with the design.
 
 In summary, **the project is mainly meant for exploration and not for daily usage, unless you can understand how it works**. The project is **NOT user friendly if you don't know anything in programming**.
 
