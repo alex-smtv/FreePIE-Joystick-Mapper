@@ -1,0 +1,40 @@
+### ---------------------------------------
+### Buttons
+### ---------------------------------------
+# x52_pro.button(0).map_to(
+#
+#     action(
+#
+#         label = "", speech_text = "",
+#
+#         joy_modifiers = (),
+#         command = 'Space',
+#         copy_commands = x52_pro.button(2).command_of(modifiers = ())
+#     )
+#
+# )
+#
+
+### ---------------------------------------
+### POV
+### ---------------------------------------
+# x52_pro.pov(0).cardinal('N').map_to(...)
+# Cardinals: N | NE | E | SE | S | SW | W | NW
+#
+
+### ---------------------------------------
+### Command attribute
+### ---------------------------------------
+# 'Right Control + K'
+# vjoy(0).button(0)
+# vjoy(0).pov(0).cardinal('N')
+# sequence.rotate(False).create( vjoy(0).button(29), vjoy(0).button(30) )
+#
+
+### ---------------------------------------
+### Copy commands attribute
+### ---------------------------------------
+# copy_commands  = (
+#     x52_pro.button(2).command_of(modifiers = ()),
+#     x52_pro.pov(0).cardinal('N').command_of(modifiers = modifier1)
+# )

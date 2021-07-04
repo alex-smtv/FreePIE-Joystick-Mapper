@@ -1,0 +1,1 @@
+This directory is a place where some testing was made for different purpose. It is kept as a future reference, but should not be used. Some parts probably doesn't work anymore.

@@ -1,0 +1,94 @@
+# HAND ON STICK - BUTTONS
++================+========+==============+========+
+| X52 Name       | Finger | F. Position  | Button |
++================+========+==============+========+
+| Trigger        | Index  | First CLICK  | 0      |
+| Second Trigger | Index  | Second CLICK | 14     |
++----------------+--------+--------------+--------+
+| Fire           | Thumb  | Middle TOP   | 1      |
++----------------+--------+--------------+--------+
+| Fire A         | Thumb  | Right TOP    | 2      |
+| Fire B         | Thumb  | Right BOTTOM | 3      |
++----------------+--------+--------------+--------+
+| Fire C         | Thumb  | Left BOTTOM  | 4      |
++----------------+--------+--------------+--------+
+| Pov 2          | Thumb  | Hat UP       | 19     |
+| Pov 2          | Thumb  | Hat RIGHT    | 20     |
+| Pov 2          | Thumb  | Hat DOWN     | 21     |
+| Pov 2          | Thumb  | Hat LEFT     | 22     |
++----------------+--------+--------------+--------+
+| Pinkie         | Pinkie | Rest         | 5      |
++----------------+--------+--------------+--------+
+
+
+# STICK SWITCHES - BUTTONS
++==========+=================+=======+========+
+| X52 Name | Switch Location | State | Button |
++==========+=================+=======+========+
+| Toggle 1 | Left            | UP    | 8      |
+| Toggle 2 | Left            | DOWN  | 9      |
++----------+-----------------+-------+--------+
+| Toggle 3 | Middle          | UP    | 10     |
+| Toggle 4 | Middle          | DOWN  | 11     |
++----------+-----------------+-------+--------+
+| Toggle 5 | Right           | UP    | 12     |
+| Toggle 6 | Right           | DOWN  | 13     |
++----------+-----------------+-------+--------+
+
+
+# STICK - POVS
++==========+========+===============+===========+==============+===========+
+| X52 Name | Finger | F. Position   | POV Index | POV Cardinal | POV Value |
++==========+========+===============+===========+==============+===========+
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | Neutral      | -1        |
++----------+--------+---------------+-----------+--------------+-----------+
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | N            | 0         |
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | NE           | 4500      |
++----------+--------+---------------+-----------+--------------+-----------+
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | E            | 9000      |
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | SE           | 13500     |
++----------+--------+---------------+-----------+--------------+-----------+
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | S            | 18000     |
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | SW           | 22500     |
++----------+--------+---------------+-----------+--------------+-----------+
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | W            | 27000     |
+| Pov 1    | Thumb  | Middle BOTTOM | 0         | NW           | 31500     |
++----------+--------+---------------+-----------+--------------+-----------+
+
+
+# HAND ON THROTTLE - BUTTONS
++====================+========+===================+========+
+| X52 Name           | Finger | F. Position       | Button |
++====================+========+===================+========+
+| Right Mouse Button | Middle | Wheel CLICK       | 18     |
+| Scroll Up          | Middle | Wheel Scroll UP   | 16     |
+| Scroll Down        | Middle | Wheel Scroll DOWN | 17     |
++--------------------+--------+-------------------+--------+
+| Throttle Hat       | Index  | Hat UP            | 25     |
+| Throttle Hat       | Index  | Hat RIGHT         | 24     |
+| Throttle Hat       | Index  | Hat DOWN          | 23     |
+| Throttle Hat       | Index  | Hat LEFT          | 26     |
++--------------------+--------+-------------------+--------+
+| Fire E             | Index  | Right TOP         | 7      |
+| Fire D             | Thumb  | Right MIDDLE      | 6      |
+| Clutch             | Thumb  | Right BOTTOM      | 30     |
++--------------------+--------+-------------------+--------+
+| Left Mouse Button  | Thumb  | Deep BOTTOM       | 15     |
++--------------------+--------+-------------------+--------+
+
+
+# THROTTLE - MFD BUTTONS
++==========+=============+==============+========+
+| X52 Name | Location    | Description  | Button |
++==========+=============+==============+========+
+| None     | Left Wheel  | CLICK        | 31     |
+| None     | Left Wheel  | Scroll UP    | 34     |
+| None     | Left Wheel  | Scroll DOWN  | 35     |
++----------+-------------+--------------+--------+
+| None     | Middle      | Button ABOVE | 32     |
+| None     | Middle      | Button BELOW | 33     |
++----------+-------------+--------------+--------+
+| None     | Right Wheel | CLICK        | 38     |
+| None     | Right Wheel | Scroll UP    | 36     |
+| None     | Right Wheel | Scroll Down  | 37     |
++----------+-------------+--------------+--------+
