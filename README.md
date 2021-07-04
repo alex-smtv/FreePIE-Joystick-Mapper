@@ -4,6 +4,9 @@ A bundle of scripts that operates together to offer mapping functionalities to y
 
 ![Intro](./_res/intro.png)
 
+### Note
+If you are using the vJoy driver version 2.1.9 (219), don't worry about the message in the console saying it doesn't match the DLL version (218). They are basically the same. 219 is just meant for Windows 10 compatibilty with no deep change. 219 driver is totally compatible with 218 DLL (provided by FreePIE).
+
 ## IMPORTANT: State of the project
 Before going further, it is important to realise the state of this project. The project is currently **unmaintained and will probably be kept as is**.
 
