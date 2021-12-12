@@ -4,19 +4,16 @@ A bundle of scripts that operates together to offer mapping functionalities to y
 
 ![Intro](./_res/intro.png)
 
-### Note
-If you are using the vJoy driver version 2.1.9 (219), don't worry about the message in the console saying it doesn't match the DLL version (218). They are basically the same. 219 is just meant for Windows 10 compatibilty with no deep change. 219 driver is totally compatible with 218 DLL (provided by FreePIE).
-
 ## IMPORTANT: State of the project
-Before going further, it is important to realise the state of this project. The project is currently **unmaintained and will probably be kept as is**.
+Before going further, it is important to understand the state of this project. The project is currently **unmaintained and will probably be kept as is** (unless I feel a personnal need to correct something). It is **NOT a finished product** as per my final vision, but still in a functionning state.
 
-The fate of the project comes from a frustration to work with FreePIE' constraints when I was trying to implement complex ideas. The most impacting one is the inability to efficiently track back code errors as the FreePIE debug window would always show me wrong line numbers.
+The fate of the project comes from frustrations to work with FreePIE's constraints when I was trying to implement complex ideas. Most notably the inability to efficiently track back execution errors as the FreePIE's debug window would always show me wrong line numbers.
 
-As I need a sane development environment I decided a long time ago to stop the production of this project and redo it with my own tools from scratch (upcoming project in Rust). In the meantime I decided to release the project to the public so anyone can explore it if wanted.
+As I need a sane development environment I decided to stop the production of this project as it already fits a lot of needs and redo it with my own tools from scratch (upcoming project). In the meantime I decided to release the project to the public so anyone can explore it if desired.
 
-The project is very well usable (a lot of effort was spent to control errors): I use it myself for my gaming needs as you'll be able to see in the profiles folder. However, it is not totally documented and organized as I envisioned it. It is foremost meant for people who knows how to handle python and can see where I was going on with the design.
+The project is very well usable (a lot of effort was spent to control errors despite constraints): I use it myself for my gaming needs as you'll be able to see in the profiles folder. However, it is not totally documented and organized as I envisioned it. It is foremost meant for people who knows how to handle python (probably devs) and can see where I was going on with the design (profile building at the minimum).
 
-In summary, **the project is mainly meant for exploration and not for daily usage, unless you can understand how it works**. The project is **NOT user friendly if you don't know anything in programming**.
+**In summary** **the project is mainly meant for exploration and not for daily usage unless you can understand how it works**. The project is **NOT user friendly if you don't know anything in programming**.
 
 ## Basic concept of how this works
 The project use profiles defined by an user to determine which mappins to do. A profile is defined in a single file and is found in the `profiles` folder. FreePIE will load a selected profile and everything else is automated.
@@ -27,12 +24,13 @@ The project use profiles defined by an user to determine which mappins to do. A 
    - Line 15: the variable `root_script_path` should set the path where `main.py` resides. Be careful of the backslash character: you need to use the escape character `\` (meaning double backslash is needed).
    - Line 18: the variable `profiles` holds a dictionary of all registered profiles. Construct the dictionary that fits the profiles selection you want to keep easily accessible.
    - Right after `profiles` variable: the `profile_selected` set the profile we currently want to load.
-3. Run the script from FreePIE top menu: Script -> Run script. The console at the bottom and a window notification will tell you if the profile is correctly loaded.
+3. Run the script from FreePIE top menu: `Script -> Run script`. The console at the bottom and a Windows notification will tell you if the profile is correctly loaded.
 
 ## Be mindful of these limitations
 - FreePIE is unable to find by itself the project's root where `main.py` and all of its scripts reside. That's why we have to help him by setting a variable as explained in the previous section.
 - A profile file' name should not contain any dash (-) separator.
-- After running a profile, if you want to change to another profile, you should restart FreePIE to avoid any side effects. The project originally had a system (now deleted) to avoid this with module reimport and other tricks, but some really nasty and really hard to track bugs (object instantiation & co) can occur: python is just not made for this in this context. Better to restart to be safe.
+- Be mindful when doing code changes that FreePie executes on Python 2.7.
+- If you want your code changes to be applied it is advised you restart FreePie to avoid any side effects since Python is holding references in memory while FreePie is running. This does not apply if you make profile changes, you can make change and they will be applied within one FreePie session.
 - Multiple concurrent devices mapping is not possible. It was meant to happen, but it is still not fully implemented (work on it had already started).
 
 ## Project folders structure
@@ -48,6 +46,8 @@ Take a look at `_SYNTAX_REFERENCE.txt` in the profiles folder and also take a lo
 
 Also the name of the function that describes the mappings is not important, the only constraint is that it must end with `_mapping`. The profile loader (src/loader/profile_loader.py) will handle the rest.
 
+### Note on vJoy version mismatch
+If you are using the vJoy driver version 2.1.9 (219), don't worry about the message in the console saying it doesn't match the DLL version (218). They are basically the same. 219 is just meant for Windows 10 compatibilty with no deep change. 219 driver is totally compatible with 218 DLL (provided by FreePIE).
 
 ## License
 
