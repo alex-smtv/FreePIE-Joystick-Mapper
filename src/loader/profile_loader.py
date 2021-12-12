@@ -1,7 +1,7 @@
 from src.helpers.freepie_vars   import FreePieVars
 from src.utils.utilities        import tuple_it_if_needed
 
-import gc
+import gc, sys
 
 class ProfileLoader:
 
@@ -10,8 +10,14 @@ class ProfileLoader:
 
         profile_module = 'profiles.' + profile_file_name
 
-        # ---
-        exec 'import ' + profile_module
+        # Reload a profile already loaded in FreePie (profile switching) so we can account for any change made
+        # in the profile.
+        # WARNING: be mindful of reload subtlety https://stackoverflow.com/a/7274356
+        for key, value in sys.modules.items():
+            if value is not None and profile_module in str(value):
+                reload(sys.modules[key])
+            else:
+                exec 'import ' + profile_module
 
         candidates_func = []
 
