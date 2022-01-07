@@ -4,82 +4,39 @@
 
 try:
 	if starting:
-		# system.setThreadTiming(TimingTypes.HighresSystemTimer)
-		# system.threadExecutionInterval = 1
+		# Specify here the full folder path where this script is stored.
+		root_script_path = "D:\Dev\Projects\FreePIE\FreePIE_Joystick_Mapper"
 		
 		### ----------------------------------------------------------------------------------------------------
 		###  Configuration zone.
 		### ----------------------------------------------------------------------------------------------------
 		
-		# Specify here the full folder path where this script is stored.
-		root_script_path = 'D:\\Dev\\Projects\\FreePIE\\FreePIE_Joystick_Mapper\\'
-	
-		# List here all profiles you want to keep track. IMPORTANT: due to a limitation, files' name should not contain any dash (-) separator.
-		profiles = {
-			# DCS AIRCRAFT
-			100: 'DCS__FA_18C',
-			101: 'DCS__Mirage_2000C',
-			102: 'DCS__A10C_II',
-			
-			# DCS HELICOPTER
-			200: 'DCS__Huey_UH_1H',
-			201: 'DCS__Gazelle_SA342',
-			202: 'DCS__KA_50',
-			203: 'DCS__Mi8_MTV2',
-			204: 'DCS__Mi24P_Hind',
-			
-			# Falcon BMS
-			400: 'Falcon4_BMS',
-
-			# IL2
-			500: 'IL2',
-
-			# Microsoft Flight Simulator 2020
-			600: 'MSFS_Global',
-			
-			# Star Citizen
-			700: 'Star Citizen',
-			
-			# Star Wars Squadrons
-			800: 'Star_Wars_Squadrons',
-			
-			# X4 Foundations
-			900: 'X4',
-			
-			# Generic
-			1000: 'VJOY_1_to_1'
-		}
-		
-		# Select here the profile you want to load.
-		profile_selected = profiles[204]
-	
-		### ----------------------------------------------------------------------------------------------------
-		###  Environment setups.    (Must be setup before making any use of our modules)
-		### ----------------------------------------------------------------------------------------------------
+		# The following two system lines can be tweaked. These values fits me, but these lines can be removed
+		# if the software is struggling (slow operations). Originaly these lines were not present.
+		# More explanation here: https://www.mtbs3d.com/phpbb/viewtopic.php?t=18724
+		system.setThreadTiming(TimingTypes.HighresSystemTimer)
+		system.threadExecutionInterval = 13
 		
 		# Inject the root path of this script to allow importation of our custom modules.
 		import sys
 		sys.path.append(root_script_path)
 	
-		# DON'T TOUCH - THIS WAS USED BEFORE, BUT NOT USED ANYMORE (kept as a reference)
-		# Reload our modules to acknolewdge modifications while FreePie is opened. Launch the script twice.
-		#from helpers.freepie_helper  import reload_modules_from
-		#reload_modules_from(root_script_path)
-	
 		# Propagate important freepie vars to a centralized access that our modules will make use of.
 		from src.helpers.freepie_vars    import FreePieVars
-		FreePieVars.feed_with(joystick, vJoy, keyboard, Key, diagnostics, speech)
+		FreePieVars.feed_with(root_script_path, joystick, vJoy, keyboard, Key, diagnostics, speech)
 	
 		### ----------------------------------------------------------------------------------------------------
 		###  Mappings setups.
 		### ----------------------------------------------------------------------------------------------------
 		from src.loader.profile_loader import ProfileLoader
 	
-		# Profile loading
-		profile = ProfileLoader(profile_selected)
+		# Handle for profiles loading
+		profile = ProfileLoader()
 		
 	profile.loop_apply_mappings()
 	
 except Exception as e:
-	diagnostics.notify("Freepie script error, aborting...")
+	message = "FreePIE script error, aborting..."
+	diagnostics.notify(message)
+	diagnostics.debug(message)
 	raise e
