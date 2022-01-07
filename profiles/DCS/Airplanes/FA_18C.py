@@ -1,3 +1,4 @@
+#: FA-18C
 from src.client.client_interface import joy, vjoy, action, threshold, sequence, transfer, Filter
 from src.helpers.freepie_vars    import FreePieVars
 
@@ -27,21 +28,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Gun Trigger (first stage)",
-
-            joy_modifiers = (),
-            command = 'P'
-
-        )
-
-    )
-
-    # ~~[ STICK / BTN 14 ]~~>>    BUTTONS / STICK --- Index Second Stage TRIGGER
-    x52_pro.button(14).map_to(
-
-        action(
-
-            label = "Gun Trigger",
+            label = "Gun Trigger - SECOND DETENT (Press to shoot)",
 
             joy_modifiers = (),
             command = 'Space'
@@ -50,6 +37,7 @@ def x52_pro_mapping():
 
     )
 
+    # ~~[ STICK / BTN 14 ]~~>>    BUTTONS / STICK --- Index Second Stage TRIGGER
     # ~~[ STICK / BTN 1  ]~~>>    BUTTONS / STICK --- Thumb TOP CENTER
     x52_pro.button(1).map_to(
 
@@ -65,28 +53,24 @@ def x52_pro_mapping():
     )
 
     # ~~[ STICK / BTN 2  ]~~>>    BUTTONS / STICK --- Thumb TOP RIGHT
-    x52_pro.button(2).map_to(
-
-        action(
-
-            label = "HOTAS CMS Z Axis",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = '-'
-
-        )
-
-    )
-
     # ~~[ STICK / BTN 3  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM RIGHT
     x52_pro.button(3).map_to(
 
         action(
 
-            label = "HOTAS Master Mode Control Button",
+            label = "Cage/Uncage",
 
             joy_modifiers = (),
-            command       = 'M'
+            command       = 'C'
+
+        ),
+
+        action(
+
+            label = "Sensor Control Switch - Depress",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'Right Alt + Enter' # not a default shortcut!
 
         )
 
@@ -97,19 +81,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS Nosewheel Steering Button",
+            label = "Undesignate/Nose Wheel Steer Switch",
 
             joy_modifiers = (),
-            command       = 'Insert'
+            command       = 'S'
 
         ),
 
         action(
 
-            label = "HOTAS Left Throttle Button",
+            label = "Autopilot/Nosewheel Steering Disengage (Paddle) Switch",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'Q'
+            command       = 'A'
 
         )
 
@@ -123,14 +107,45 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / BTN 7  ]~~>>    BUTTONS / THROTTLE --- TOP
+    x52_pro.button(7).map_to(
+
+        action(
+
+            label = "Throttle Designator Controller - Depress",
+
+            joy_modifiers = (),
+            command       = 'Enter'
+
+        ),
+
+        action(
+
+            label = "RAID/FLIR FOV Select Button",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'i'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / BTN 6  ]~~>>    BUTTONS / THROTTLE --- MIDDLE
     x52_pro.button(6).map_to(
 
         action(
 
-            label = "VKB T-Rudder T-Link", # Differential brakes
+            label = "Zoom normal",
 
             joy_modifiers = (),
+            command       = 'Num Enter'
+
+        ),
+        
+        action(
+
+            label = "VKB T-Rudder T-Link", # Differential brakes
+
+            joy_modifiers = (modifier_pinkie),
             command       = vjoy(4).button(0)
 
         )
@@ -171,7 +186,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Toggle googles", # NVG
+            label = "Toggle goggles", # NVG
 
             joy_modifiers = (),
             command       = 'Right Shift + H'
@@ -180,19 +195,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS Boat Switch Center",
+            label = "Exterior Light Switch - ON/OFF",
 
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Alt + Arrow Down'
+            joy_modifiers = (modifier_pinkie),
+            command       = 'L'
 
         ),
 
         action(
 
-            label = "HOTAS Pinkie Center",
+            label = "RECCE Event Mark Switch", # Turn ON/OFF HMD
 
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Shift +  P'
+            joy_modifiers = (modifier_pinkie, modifier_clutch),
+            command       = 'R'
 
         )
 
@@ -206,25 +221,7 @@ def x52_pro_mapping():
             label = "Gain goggles up", # NVG
 
             joy_modifiers = (),
-            command       = 'Right Shift + Right Control + H'
-
-        ),
-
-        action(
-
-            label = "HOTAS Boat Switch Forward",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Alt + Arrow Right'
-
-        ),
-
-        action(
-
-            label = "HOTAS Pinkie Forward",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Alt +  P'
+            command       = 'Right Control + Right Shift + H'
 
         )
 
@@ -238,30 +235,11 @@ def x52_pro_mapping():
             label = "Gain goggles down", # NVG
 
             joy_modifiers = (),
-            command       = 'Right Shift + Right Alt + H'
-
-        ),
-
-        action(
-
-            label = "HOTAS Boat Switch Aft",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Alt + Arrow Left'
-
-        ),
-
-        action(
-
-            label = "HOTAS Pinkie Aft",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Control +  P'
+            command       = 'Right Alt + Right Shift + H'
 
         )
 
     )
-
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # > > > >   BUTTONS / THROTTLE MFD
@@ -275,7 +253,7 @@ def x52_pro_mapping():
             label = "Flaps Down",
 
             joy_modifiers = (),
-            command       = 'F'
+            command       = 'Left Alt + Left Control + F'
 
         )
 
@@ -286,7 +264,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Engine Start Left", speech_text="Throttle Left IDLE",
+            label = "Throttle (Left) - IDLE", speech_text="Throttle Left IDLE",
 
             joy_modifiers = (),
             command       = 'Right Alt + Home'
@@ -300,7 +278,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Engine Stop Left", speech_text="Throttle Left OFF",
+            label = "Throttle (Left) - OFF", speech_text="Throttle Left OFF",
 
             joy_modifiers = (),
             command       = 'Right Alt + End'
@@ -310,12 +288,25 @@ def x52_pro_mapping():
     )
 
     # ~~[ THROTTLE / MFD BTN 32 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER TOP
+    x52_pro.button(32).map_to(
+
+        action(
+
+            label = "ATC Engage/Disengage Switch", speech_text="ATC",
+
+            joy_modifiers = (),
+            command       = 'T'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / MFD BTN 33 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER BOTTOM
     x52_pro.button(33).map_to(
 
         action(
 
-            label = "Landing Gear Up/Down",
+            label = "Landing Gear Control Handle - UP/DOWN", speech_text="Landing Gear",
 
             joy_modifiers = (),
             command       = 'G'
@@ -332,7 +323,7 @@ def x52_pro_mapping():
             label = "Flaps Up",
 
             joy_modifiers = (),
-            command       = 'Left Shift + F'
+            command       = 'Left Alt + Left Shift + F'
 
         )
 
@@ -343,10 +334,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Engine Start Right", speech_text="Throttle Right IDLE",
+            label = "Throttle (Right) - IDLE", speech_text="Throttle Right IDLE",
 
             joy_modifiers = (),
-            command       = 'Right Control + Home'
+            command       = 'Right Shift + Home'
 
         )
 
@@ -357,10 +348,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Engine Stop Right", speech_text="Throttle Right OFF",
+            label = "Throttle (Right) - OFF", speech_text="Throttle Right OFF",
 
             joy_modifiers = (),
-            command       = 'Right Control + End'
+            command       = 'Right Shift + End'
 
         )
 
@@ -378,24 +369,81 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ STICK / SWITCH BTN 8  ]~~>>    SWITCHES / STICK --- LEFT FWD
+    x52_pro.button(8).map_to(
+
+        action(
+
+            label = "Master Arm Switch: Arm/Safe",
+
+            joy_modifiers = (),
+            command       = 'M'
+
+        )
+
+    )
+
     # ~~[ STICK / SWITCH BTN 9  ]~~>>    SWITCHES / STICK --- LEFT AFT
     x52_pro.button(9).map_to(
 
         action(
 
-            label = "UFC Master Caution Key",
+            label = "MASTER CAUTION Reset Button",
 
             joy_modifiers = (),
-            command       = 'Left Control + M'
+            command       = 'N'
 
         )
 
     )
 
     # ~~[ STICK / SWITCH BTN 10 ]~~>>    SWITCHES / STICK --- CENTER FWD
+    x52_pro.button(10).map_to(
+
+        action(
+
+            label = "Master Mode: A/A",
+
+            joy_modifiers = (),
+            command       = '1'
+
+        )
+
+    )
+
     # ~~[ STICK / SWITCH BTN 11 ]~~>>    SWITCHES / STICK --- CENTER AFT
+    x52_pro.button(11).map_to(
+
+        action(
+
+            label = "Master Mode: A/G",
+
+            joy_modifiers = (),
+            command       = '2'
+
+        )
+
+    )
+
     # ~~[ STICK / SWITCH BTN 12 ]~~>>    SWITCHES / STICK --- RIGHT FWD
     x52_pro.button(12).map_to(
+
+        action(
+
+            label = "Show pilot body",
+
+            joy_modifiers = (),
+            command       = 'Right Shift + P'
+
+        ),
+        
+        action(
+
+            label = "Control Stick - HIDE/SHOW",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'Backspace'
+
+        ),
         
         action(
 
@@ -422,6 +470,7 @@ def x52_pro_mapping():
 
     )
 
+
     #* ///////////////////////////////////////////////////////////////////////////////
     #* //                                                                           
     #* // POVS                                                         
@@ -437,19 +486,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trim: Nose Up",
+            label = "Trimmer Switch - PUSH(DESCEND)", # Elevator Trim DOWN
 
             joy_modifiers = (),
-            command       = 'Right Control + .'
+            command       = 'Right Control + ;'
 
         ),
 
         action(
 
-            label = "HOTAS CMS Forward",
+            label = "Dispense Switch - Forward(CHAFF)/Center(OFF)",
 
             joy_modifiers = (modifier_pinkie),
-            command       = '7'
+            command       = 'E'
 
         ),
 
@@ -469,19 +518,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trim: Right Wing Down",
+            label = "Trimmer Switch - RIGHT WING DOWN", # Ailreon Trim RIGHT WING DOWN
 
             joy_modifiers = (),
             command       = 'Right Control + /'
-
-        ),
-
-        action(
-
-            label = "HOTAS CMS Right",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = '0'
 
         ),
 
@@ -501,19 +541,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trim: Nose Down",
+            label = "Trimmer Switch - PULL (CLIMB)", # Elevator Trim UP
 
             joy_modifiers = (),
-            command       = 'Right Control + ;'
+            command       = 'Right Control + .'
 
         ),
 
         action(
 
-            label = "HOTAS CMS Aft",
+            label = "Dispense Switch - Aft(FLARE)/Center(OFF)",
 
             joy_modifiers = (modifier_pinkie),
-            command       = '8'
+            command       = 'D'
 
         ),
 
@@ -533,19 +573,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trim: Left Wing Down",
+            label = "Trimmer Switch - LEFT WING DOWN", # Ailreon Trim LEFT WING DOWN
 
             joy_modifiers = (),
             command       = 'Right Control + ,'
-
-        ),
-
-        action(
-
-            label = "HOTAS CMS Left",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = '9'
 
         ),
 
@@ -560,7 +591,6 @@ def x52_pro_mapping():
 
     )
 
-
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # > > > >   POV / STICK   [BOTTOM CENTER - 8-Way]
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -570,28 +600,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS DMS Forward",
+            label = "Select Sparrow", speech_text="FOX 1 AIM-7",
 
             joy_modifiers = (),
-            command       = 'Home'
+            command       = 'Left Shift + W'
 
         ),
 
         action(
 
-            label = "HOTAS Coolie Switch Up",
+            label = "Sensor Control Switch - Fwd",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'U'
-
-        ),
-
-        action(
-
-            label = "HOTAS TMS Forward",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Left Control + Arrow Up'
+            command       = 'Right Alt + ;'
 
         )
 
@@ -603,28 +624,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS DMS Right",
+            label = "Select AMRAAM", speech_text="FOX 3 AIM-120",
 
             joy_modifiers = (),
-            command       = 'Page Down'
+            command       = 'Left Shift + D'
 
         ),
 
         action(
 
-            label = "HOTAS Coolie Switch Right",
+            label = "Sensor Control Switch - Right",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'K'
-
-        ),
-
-        action(
-
-            label = "HOTAS TMS Right",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Left Control + Arrow Right'
+            command       = 'Right Alt + /'
 
         )
 
@@ -636,28 +648,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS DMS Aft",
+            label = "Select Sidewinder", speech_text="FOX 2 AIM-9",
 
             joy_modifiers = (),
-            command       = 'End'
+            command       = 'Left Shift + S'
 
         ),
 
         action(
 
-            label = "HOTAS Coolie Switch Down",
+            label = "Sensor Control Switch - Aft",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'J'
-
-        ),
-
-        action(
-
-            label = "HOTAS TMS Aft",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Left Control + Arrow Down'
+            command       = 'Right Alt + .'
 
         )
 
@@ -669,28 +672,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS DMS Left",
+            label = "Select Gun", speech_text="Gun",
 
             joy_modifiers = (),
-            command       = 'Delete'
+            command       = 'Left Shift + X'
 
         ),
 
         action(
 
-            label = "HOTAS Coolie Switch Left",
+            label = "Sensor Control Switch - Left",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'H'
-
-        ),
-
-        action(
-
-            label = "HOTAS TMS Left",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Left Control + Left Arrow'
+            command       = 'Right Alt + ,'
 
         )
 
@@ -708,28 +702,28 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS Slew Up",
+            label = "Throttle Designator Controller - Up",
 
             joy_modifiers = (),
             command       = ';'
 
         ),
-        
+
         action(
 
-            label = "HOTAS China Hat Forward",
+            label = "Radar Elevation Control - Up",
 
             joy_modifiers = (modifier_clutch),
-            command       = 'V'
+            command       = '='
 
         ),
-        
+
         action(
 
-            label = "HOTAS Speed Brake Switch Forward", # Retract
+            label = "Speed Brake Retract",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'Left Shift + B'
+            command       = 'Left Control + B'
 
         )
 
@@ -740,7 +734,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS Slew Right",
+            label = "Throttle Designator Controller - Right",
 
             joy_modifiers = (),
             command       = '/'
@@ -754,39 +748,39 @@ def x52_pro_mapping():
 
         action(
 
-            label = "HOTAS Slew Down",
+            label = "Throttle Designator Controller - Down",
 
             joy_modifiers = (),
             command       = '.'
 
         ),
-        
+
         action(
 
-            label = "HOTAS China Hat Aft",
+            label = "Radar Elevation Control - Down",
 
             joy_modifiers = (modifier_clutch),
-            command       = 'C'
+            command       = '-'
 
         ),
-        
+
         action(
 
-            label = "HOTAS Speed Brake Switch Aft", # Extend
+            label = "Speed Brake Extend",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'Left Control + B'
+            command       = 'Left Shift + B'
 
         )
 
     )
-    
+
     # ~~[ THROTTLE / POV BTN 26 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat LEFT
     x52_pro.button(26).map_to(
 
         action(
 
-            label = "HOTAS Slew Left",
+            label = "Throttle Designator Controller - Left",
 
             joy_modifiers = (),
             command       = ','
@@ -794,7 +788,6 @@ def x52_pro_mapping():
         )
 
     )
-
 
     #* ///////////////////////////////////////////////////////////////////////////////
     #* //                                                                           
@@ -851,7 +844,7 @@ def x52_pro_mapping():
         vjoy(0).axis('rz').filtered_with(
 
             curve_filters = (
-                Filter.MinMax(-0.5 * joy_axis_max, 0.5 * joy_axis_max)
+                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
             )
 
         )
@@ -880,11 +873,7 @@ def x52_pro_mapping():
     # ~~[ THROTTLE / AXIS RY ]~~
     x52_pro.axis('ry').map_to(
 
-        vjoy(0).axis('ry').filtered_with(
-
-            invert = True
-            
-        )
+        vjoy(0).axis('ry')
 
     )
 
@@ -910,7 +899,7 @@ def x52_pro_mapping():
                 #     radius = 0.035 * joy_axis_max
                 # ),
 
-                Filter.MinMax(-1 * joy_axis_max, 0 * joy_axis_max)
+                Filter.MinMax(-1 * joy_axis_max, 0.5 * joy_axis_max)
 
             )
 
@@ -930,8 +919,10 @@ def x52_pro_mapping():
 
         vjoy(0).axis('slider2').filtered_with(
 
+            invert = True,
+            
             curve_filters = (
-                Filter.MinMax(-0.4*joy_axis_max, 0.4*joy_axis_max)
+                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
             )
 
         )

@@ -1,3 +1,4 @@
+#: Star Citizen
 from src.client.client_interface import joy, vjoy, action, threshold, sequence, transfer, Filter
 from src.helpers.freepie_vars    import FreePieVars
 
@@ -9,93 +10,49 @@ def x52_pro_mapping():
     x52_pro = joy(joy_name, joy_axis_max)
 
     ### Modifiers Vars
-    pinkie_modifier1 = 5
-    clutch_modifier2 = 30
+    modifier_pinkie = 5
+    modifier_clutch = 30
 
-    ### For reference only
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // BUTTONS                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
 
-    # x52_pro.button(0).map_to(
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / STICK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    #     action(
-
-    #         label = "", speech_text = "",
-
-    #         joy_modifiers = (),
-    #         command = 'Space',
-    #         copy_commands = x52_pro.button(2).command_of(modifiers = ())
-    #     )
-
-    # )
-
-    # x52_pro.pov(0).cardinal('S').map_to(...)
-
-    # Commands:
-    # vjoy(0).button(0)
-    # vjoy(0).pov(0).cardinal('N')
-    # sequence.rotate(False).create( vjoy(0).button(29), vjoy(0).button(30))
-
-    # Copy commands:
-    # copy_commands  = (
-    #     x52_pro.button(2).command_of(modifiers = ()),
-    #     x52_pro.pov(0).cardinal('N').command_of(modifiers = modifier1)
-    # )
+    # ~~[ STICK / BTN 0  ]~~>>    BUTTONS / STICK --- Index First Stage TRIGGER
+    # ~~[ STICK / BTN 14 ]~~>>    BUTTONS / STICK --- Index Second Stage TRIGGER
+    # ~~[ STICK / BTN 1  ]~~>>    BUTTONS / STICK --- Thumb TOP CENTER
+    # ~~[ STICK / BTN 2  ]~~>>    BUTTONS / STICK --- Thumb TOP RIGHT
+    # ~~[ STICK / BTN 3  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM RIGHT
+    # ~~[ STICK / BTN 4  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM LEFT
+    # ~~[ STICK / BTN 5  ]~~>>    BUTTONS / STICK --- Pinkie
 
 
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / THROTTLE
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    ###|                                                                            |
-    ###|  Mapping - Buttons                                                         |
-    ###|                                                                            |
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    # ~~[ THROTTLE / BTN 7  ]~~>>    BUTTONS / THROTTLE --- TOP
+    # ~~[ THROTTLE / BTN 6  ]~~>>    BUTTONS / THROTTLE --- MIDDLE
+    x52_pro.button(6).map_to(
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >   HAND ON STICK - BUTTONS   < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        action(
 
-    # ~~[ STICK / BTN 0 ]~~>>   | Trigger | Index | First CLICK |
-    # ~~[ STICK / BTN 14 ]~~>>  | Second Trigger | Index | Second CLICK |
-    # ~~[ STICK / BTN 1 ]~~>>   | Fire   | Thumb | Middle TOP |
-    # ~~[ STICK / BTN 2 ]~~>>   | Fire A | Thumb | Right TOP |
-    # ~~[ STICK / BTN 3 ]~~>>   | Fire B | Thumb | Right BOTTOM |
-    # ~~[ STICK / BTN 4 ]~~>>   | Fire C | Thumb | Left BOTTOM |
-    # ~~[ STICK / POV BTN 19 ]~~>>  | Pov 2  | Thumb | Hat UP |
-    # ~~[ STICK / POV BTN 20 ]~~>>  | Pov 2  | Thumb | Hat RIGHT |
-    # ~~[ STICK / POV BTN 21 ]~~>>  | Pov 2  | Thumb | Hat DOWN |
-    # ~~[ STICK / POV BTN 22 ]~~>>  | Pov 2  | Thumb | Hat LEFT |
-    # ~~[ STICK / BTN 5 ]~~>>   | Pinkie | Pinkie | Rest |
+            label = "VKB T-Rudder T-Link", # Differential brakes
 
+            joy_modifiers = (),
+            command       = vjoy(4).button(0)
 
+        )
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >  STICK SWITCHES - BUTTONS   < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    )
 
-    # ~~[ STICK / SWITCH BTN 8 ]~~>>   | Toggle 1 | Left   | UP   |
-    # ~~[ STICK / SWITCH BTN 9 ]~~>>   | Toggle 2 | Left   | DOWN |
-    # ~~[ STICK / SWITCH BTN 10 ]~~>>  | Toggle 3 | Middle | UP   |
-    # ~~[ STICK / SWITCH BTN 11 ]~~>>  | Toggle 4 | Middle | DOWN |
-    # ~~[ STICK / SWITCH BTN 12 ]~~>>  | Toggle 5 | Right  | UP   |
-    # ~~[ STICK / SWITCH BTN 13 ]~~>>  | Toggle 6 | Right  | DOWN |
-
-
-
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >  HAND ON THROTTLE - BUTTONS < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-    # ~~[ THROTTLE / WHEEL BTN 18 ]~~>>  | Right Mouse Button | Middle | Wheel CLICK       |
-    # ~~[ THROTTLE / WHEEL BTN 16 ]~~>>  | Scroll Up          | Middle | Wheel Scroll UP   |
-    # ~~[ THROTTLE / WHEEL BTN 17 ]~~>>  | Scroll Down        | Middle | Wheel Scroll DOWN |
-    # ~~[ THROTTLE / POV BTN 25 ]~~>>  | Throttle Hat | Index | Hat UP
-    # ~~[ THROTTLE / POV BTN 24 ]~~>>  | Throttle Hat | Index | Hat RIGHT
-    # ~~[ THROTTLE / POV BTN 23 ]~~>>  | Throttle Hat | Index | Hat DOWN
-    # ~~[ THROTTLE / POV BTN 26 ]~~>>  | Throttle Hat | Index | Hat LEFT
-    # ~~[ THROTTLE / BTN 7 ]~~>>   | Fire E | Thumb  | Right TOP
-    # ~~[ THROTTLE / BTN 6 ]~~>>   | Fire D | Thumb  | Right MIDDLE
-    # ~~[ THROTTLE / BTN 30 ]~~>>  | Clutch | Thumb  | Right BOTTOM
-
-    # ~~[ THROTTLE / BTN 15 ]~~>>  | Left Mouse Button | Thumb | Deep BOTTOM
+    # ~~[ THROTTLE / BTN 30 ]~~>>    BUTTONS / THROTTLE --- BOTTOM
+    # ~~[ THROTTLE / BTN 15 ]~~>>    BUTTONS / THROTTLE --- Mouse Click BOTTOM
     x52_pro.button(15).map_to(
 
         action(
@@ -103,76 +60,171 @@ def x52_pro_mapping():
             label = "OpenTrack Recenter",
 
             joy_modifiers = (),
-            command = vjoy(4).button(0)
+            command = (
+                vjoy(0).button(0)
+            )
         ),
 
         action(
 
             label = "OpenTrack Freeze",
 
-            joy_modifiers = (pinkie_modifier1),
-            command = vjoy(4).button(1)
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(0).button(1)
         )
 
     )
 
 
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / THROTTLE MOUSE WHEEL
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >    THROTTLE - MFD BUTTONS   < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    # ~~[ THROTTLE / MFD BTN 31 ]~~>>   | Left Wheel  | CLICK
-    # ~~[ THROTTLE / MFD BTN 34 ]~~>>   | Left Wheel  | Scroll UP
-    # ~~[ THROTTLE / MFD BTN 35 ]~~>>   | Left Wheel  | Scroll DOWN
-    # ~~[ THROTTLE / MFD BTN 32 ]~~>>   | Middle      | Button ABOVE
-    # ~~[ THROTTLE / MFD BTN 33 ]~~>>   | Middle      | Button BELOW
-    # ~~[ THROTTLE / MFD BTN 38 ]~~>>   | Right Wheel | CLICK
-    # ~~[ THROTTLE / MFD BTN 36 ]~~>>   | Right Wheel | Scroll UP
-    # ~~[ THROTTLE / MFD BTN 37 ]~~>>   | Right Wheel | Scroll DOWN
+    # ~~[ THROTTLE / WHEEL BTN 18 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- DOWN
+    # ~~[ THROTTLE / WHEEL BTN 16 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL FWD
+    # ~~[ THROTTLE / WHEEL BTN 17 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL AFT
 
 
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / THROTTLE MFD
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    # ~~[ THROTTLE / MFD BTN 31 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel DOWN
+    # ~~[ THROTTLE / MFD BTN 34 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel SCROLL FWD
+    # ~~[ THROTTLE / MFD BTN 35 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel SCROLL AFT
+    # ~~[ THROTTLE / MFD BTN 32 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER TOP
+    # ~~[ THROTTLE / MFD BTN 33 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER BOTTOM
+    # ~~[ THROTTLE / MFD BTN 38 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel DOWN
+    # ~~[ THROTTLE / MFD BTN 36 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel FWD
+    # ~~[ THROTTLE / MFD BTN 37 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel AFT
 
 
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    ###|                                                                            |
-    ###|  Mapping - POVs                                                            |
-    ###|                                                                            |
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // SWITCHES                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >        STICK - POVS         < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   SWITCHES / STICK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    # ~~[ STICK / POV 0 | N ]~~    | Pov 1 | Thumb | Middle BOTTOM
-    # ~~[ STICK / POV 0 | NE ]~~   | Pov 1 | Thumb | Middle BOTTOM
-    # ~~[ STICK / POV 0 | E ]~~    | Pov 1 | Thumb | Middle BOTTOM
-    # ~~[ STICK / POV 0 | SE ]~~   | Pov 1 | Thumb | Middle BOTTOM
-    # ~~[ STICK / POV 0 | S ]~~    | Pov 1 | Thumb | Middle BOTTOM
-    # ~~[ STICK / POV 0 | SW ]~~   | Pov 1 | Thumb | Middle BOTTOM
-    # ~~[ STICK / POV 0 | W ]~~    | Pov 1 | Thumb | Middle BOTTOM
-    # ~~[ STICK / POV 0 | NW ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / SWITCH BTN 8  ]~~>>    SWITCHES / STICK --- LEFT FWD
+    # ~~[ STICK / SWITCH BTN 9  ]~~>>    SWITCHES / STICK --- LEFT AFT
+    # ~~[ STICK / SWITCH BTN 10 ]~~>>    SWITCHES / STICK --- CENTER FWD
+    # ~~[ STICK / SWITCH BTN 11 ]~~>>    SWITCHES / STICK --- CENTER AFT
+    # ~~[ STICK / SWITCH BTN 12 ]~~>>    SWITCHES / STICK --- RIGHT FWD
+    # ~~[ STICK / SWITCH BTN 13 ]~~>>    SWITCHES / STICK --- RIGHT AFT
 
 
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // POVS                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   POV / STICK   [TOP LEFT | 4-Way]
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    # ~~[ STICK / POV BTN 19 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat FWD
+    x52_pro.button(19).map_to(
+
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(11)
+
+        )
+
+    )
+
+    # ~~[ STICK / POV BTN 20 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat RIGHT 
+    x52_pro.button(20).map_to(
+
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(12)
+
+        )
+
+    )
+
+    # ~~[ STICK / POV BTN 21 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat AFT
+    x52_pro.button(21).map_to(
+
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(13)
+
+        )
+
+    )
+
+    # ~~[ STICK / POV BTN 22 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat LEFT 
+    x52_pro.button(22).map_to(
+
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(10)
+
+        )
+
+    )
 
 
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    ###|                                                                            |
-    ###|  Mapping - Axes                                                            |
-    ###|                                                                            |
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   POV / STICK   [BOTTOM CENTER - 8-Way]
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >           AXES              < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # ~~[ STICK / POV 0 | N  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- North
+    # ~~[ STICK / POV 0 | NE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northeast
+    # ~~[ STICK / POV 0 | E  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- East
+    # ~~[ STICK / POV 0 | SE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southeast
+    # ~~[ STICK / POV 0 | S  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- South
+    # ~~[ STICK / POV 0 | SW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southwest
+    # ~~[ STICK / POV 0 | W  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- West
+    # ~~[ STICK / POV 0 | NW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northwest
 
-    #deadzone_minimum = 2.3
-    deadzone_minimum = 0
 
-    linear_curve_dz = Filter.Curve(
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   POV / THROTTLE   [TOP | 4-Way]
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    # ~~[ THROTTLE / POV BTN 25 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat FWD
+    # ~~[ THROTTLE / POV BTN 24 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat RIGHT
+    # ~~[ THROTTLE / POV BTN 23 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat AFT
+    # ~~[ THROTTLE / POV BTN 26 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat LEFT
+
+
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // AXES                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   AXES / STICK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    #stick_deadzone = 2.3
+    stick_deadzone = 0
+
+    stick_curve = Filter.Curve(
 
         max_value    = joy_axis_max,
-        deadzone     = deadzone_minimum,
+        deadzone     = stick_deadzone,
         saturation_x = 100,
         saturation_y = 100,
         curvature    = 0
@@ -185,7 +237,7 @@ def x52_pro_mapping():
         vjoy(0).axis('x').filtered_with(
 
             curve_filters = (
-                linear_curve_dz
+                stick_curve
             )
 
         )
@@ -198,7 +250,7 @@ def x52_pro_mapping():
         vjoy(0).axis('y').filtered_with(
 
             curve_filters = (
-                linear_curve_dz
+                stick_curve
             )
 
         )
@@ -211,12 +263,17 @@ def x52_pro_mapping():
         vjoy(0).axis('rz').filtered_with(
 
             curve_filters = (
-                linear_curve_dz
+                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
             )
 
         )
 
     )
+
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   AXES / THROTTLE
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / AXIS Z ]~~
     x52_pro.axis('z').map_to(
@@ -239,7 +296,7 @@ def x52_pro_mapping():
 
     )
 
-    # ~~[ THROTTLE / AXIS SLIDER ]~~
+    # ~~[ THROTTLE / AXIS SLIDER1 ]~~
     x52_pro.axis('slider1').map_to(
 
         vjoy(0).axis('slider1').filtered_with(
@@ -247,9 +304,44 @@ def x52_pro_mapping():
             invert = True,
 
             curve_filters = (
-                Filter.Kalman(process_noise = 0.001, sensor_noise = 10000000, estimated_error = 100, radius = 0.04 * joy_axis_max, delay_radius_count = 17),
-                #Filter.LowPass(smoothing_factor = 0.000001, radius = 0.035 * joy_axis_max),
-                Filter.MinMax(-joy_axis_max, 1 * joy_axis_max)
+
+                Filter.Kalman(
+                    process_noise = 0.001, 
+                    sensor_noise = 10000000, 
+                    estimated_error = 100, 
+                    radius = 0.04 * joy_axis_max, 
+                    delay_radius_count = 17
+                ),
+
+                # Filter.LowPass(
+                #     smoothing_factor = 0.000001, 
+                #     radius = 0.035 * joy_axis_max
+                # ),
+
+                Filter.MinMax(-1 * joy_axis_max, 0.5 * joy_axis_max)
+
+            )
+
+        )
+
+    )
+
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   AXES / REGISTRY HACK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # The following axis doesn't physically exist on the x52 pro.
+    # However a registry hack allows it to virtually exist (e.g. by mapping one mouse mini-stick axis to it).
+
+    # ~~[ REGISTRY HACK / AXIS SLIDER2 ]~~
+    x52_pro.axis('slider2').map_to(
+
+        vjoy(0).axis('slider2').filtered_with(
+
+            invert = True,
+            
+            curve_filters = (
+                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
             )
 
         )
@@ -257,6 +349,3 @@ def x52_pro_mapping():
     )
 
     return x52_pro
-
-def custom_code_in_loop():
-    pass

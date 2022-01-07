@@ -1,3 +1,4 @@
+#: vJoy 1 to 1
 from src.client.client_interface import joy, vjoy, action, threshold, sequence, transfer, Filter
 from src.helpers.freepie_vars    import FreePieVars
 
@@ -9,21 +10,20 @@ def x52_pro_mapping():
     x52_pro = joy(joy_name, joy_axis_max)
 
     ### Modifiers Vars
-    modifier1 = 30
-    modifier2 = 6
+    modifier_pinkie = 5
+    modifier_clutch = 30
 
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // BUTTONS                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
 
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    ###|                                                                            |
-    ###|  INFO: Mapping - Buttons                                                   |
-    ###|                                                                            |
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / STICK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >   HAND ON STICK - BUTTONS   < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    # ~~[ STICK / BTN 0 ]~~>>   | Trigger | Index | First CLICK |
+    # ~~[ STICK / BTN 0  ]~~>>    BUTTONS / STICK --- Index First Stage TRIGGER
     x52_pro.button(0).map_to(
 
         action(
@@ -39,7 +39,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(0)
 
         ),
@@ -48,14 +48,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(0)
 
         )
 
     )
 
-    # ~~[ STICK / BTN 14 ]~~>>  | Second Trigger | Index | Second CLICK |
+    # ~~[ STICK / BTN 14 ]~~>>    BUTTONS / STICK --- Index Second Stage TRIGGER
     x52_pro.button(14).map_to(
 
         action(
@@ -71,7 +71,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(14)
 
         ),
@@ -80,14 +80,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(14)
 
         )
 
     )
 
-    # ~~[ STICK / BTN 1 ]~~>>   | Fire | Thumb | Middle TOP |
+    # ~~[ STICK / BTN 1  ]~~>>    BUTTONS / STICK --- Thumb TOP CENTER
     x52_pro.button(1).map_to(
 
         action(
@@ -103,7 +103,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(1)
 
         ),
@@ -112,14 +112,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(1)
 
         )
 
     )
 
-    # ~~[ STICK / BTN 2 ]~~>>   | Fire A | Thumb | Right TOP |
+    # ~~[ STICK / BTN 2  ]~~>>    BUTTONS / STICK --- Thumb TOP RIGHT
     x52_pro.button(2).map_to(
 
         action(
@@ -135,7 +135,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(2)
 
         ),
@@ -144,14 +144,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(2)
 
         )
 
     )
 
-    # ~~[ STICK / BTN 3 ]~~>>   | Fire B | Thumb | Right BOTTOM |
+    # ~~[ STICK / BTN 3  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM RIGHT
     x52_pro.button(3).map_to(
 
         action(
@@ -167,7 +167,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(3)
 
         ),
@@ -176,14 +176,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(3)
 
         )
 
     )
 
-    # ~~[ STICK / BTN 4 ]~~>>   | Fire C | Thumb | Left BOTTOM |
+    # ~~[ STICK / BTN 4  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM LEFT
     x52_pro.button(4).map_to(
 
         action(
@@ -199,7 +199,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(4)
 
         ),
@@ -208,142 +208,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(4)
 
         )
 
     )
 
-    # ~~[ STICK / POV BTN 19 ]~~>>  | Pov 2 | Thumb | Hat UP |
-    x52_pro.button(19).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(19)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(19)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(19)
-
-        )
-
-    )
-
-    # ~~[ STICK / POV BTN 20 ]~~>>  | Pov 2 | Thumb | Hat RIGHT |
-    x52_pro.button(20).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(20)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(20)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(20)
-
-        )
-
-    )
-
-    # ~~[ STICK / POV BTN 21 ]~~>>  | Pov 2 | Thumb | Hat DOWN |
-    x52_pro.button(21).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(21)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(21)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(21)
-
-        )
-
-    )
-
-    # ~~[ STICK / POV BTN 22 ]~~>>  | Pov 2 | Thumb | Hat LEFT |
-    x52_pro.button(22).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(22)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(22)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(22)
-
-        )
-
-    )
-
-    # ~~[ STICK / BTN 5 ]~~>>   | Pinkie | Pinkie | Rest |
+    # ~~[ STICK / BTN 5  ]~~>>    BUTTONS / STICK --- Pinkie
     x52_pro.button(5).map_to(
 
         action(
@@ -359,7 +231,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(5)
 
         ),
@@ -368,7 +240,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(5)
 
         )
@@ -376,432 +248,11 @@ def x52_pro_mapping():
     )
 
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >  STICK SWITCHES - BUTTONS   < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    # ~~[ STICK / SWITCH BTN 8 ]~~>>   | Toggle 1 | Left   | UP   |
-    x52_pro.button(8).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(8)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(8)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(8)
-
-        )
-
-    )
-
-    # ~~[ STICK / SWITCH BTN 9 ]~~>>   | Toggle 2 | Left   | DOWN |
-    x52_pro.button(9).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(9)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(9)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(9)
-
-        )
-
-    )
-
-    # ~~[ STICK / SWITCH BTN 10 ]~~>>  | Toggle 3 | Middle | UP   |
-    x52_pro.button(10).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(10)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(10)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(10)
-
-        )
-
-    )
-
-    # ~~[ STICK / SWITCH BTN 11 ]~~>>  | Toggle 4 | Middle | DOWN |
-    x52_pro.button(11).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(11)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(11)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(11)
-
-        )
-
-    )
-
-    # ~~[ STICK / SWITCH BTN 12 ]~~>>  | Toggle 5 | Right  | UP   |
-    x52_pro.button(12).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(12)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(12)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(12)
-
-        )
-
-    )
-
-    # ~~[ STICK / SWITCH BTN 13 ]~~>>  | Toggle 6 | Right  | DOWN |
-    x52_pro.button(13).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(13)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(13)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(13)
-
-        )
-
-    )
-
-
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >  HAND ON THROTTLE - BUTTONS < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    # ~~[ THROTTLE / WHEEL BTN 18 ]~~>>  | Right Mouse Button | Middle | Wheel CLICK       |
-    x52_pro.button(18).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(18)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(18)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(18)
-
-        )
-
-    )
-
-    # ~~[ THROTTLE / WHEEL BTN 16 ]~~>>  | Scroll Up          | Middle | Wheel Scroll UP   |
-    x52_pro.button(16).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(16)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(16)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(16)
-
-        )
-
-    )
-
-    # ~~[ THROTTLE / WHEEL BTN 17 ]~~>>  | Scroll Down        | Middle | Wheel Scroll DOWN |
-    x52_pro.button(17).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(17)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(17)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(17)
-
-        )
-
-    )
-
-    # ~~[ THROTTLE / POV BTN 25 ]~~>>  | Throttle Hat | Index | Hat UP
-    x52_pro.button(25).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(25)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(25)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(25)
-
-        )
-
-    )
-
-    # ~~[ THROTTLE / POV BTN 24 ]~~>>  | Throttle Hat | Index | Hat RIGHT
-    x52_pro.button(24).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(24)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(24)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(24)
-
-        )
-
-    )
-
-    # ~~[ THROTTLE / POV BTN 23 ]~~>>  | Throttle Hat | Index | Hat DOWN
-    x52_pro.button(23).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(23)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(23)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(23)
-
-        )
-
-    )
-
-    # ~~[ THROTTLE / POV BTN 26 ]~~>>  | Throttle Hat | Index | Hat LEFT
-    x52_pro.button(26).map_to(
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (),
-            command = vjoy(0).button(26)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(26)
-
-        ),
-
-        action(
-
-            label = "",
-
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(26)
-
-        )
-
-    )
-
-    # ~~[ THROTTLE / BTN 7 ]~~>>   | Pinkie | Pinkie | Rest |
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / THROTTLE
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    # ~~[ THROTTLE / BTN 7  ]~~>>    BUTTONS / THROTTLE --- TOP
     x52_pro.button(7).map_to(
 
         action(
@@ -817,7 +268,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(7)
 
         ),
@@ -826,88 +277,65 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(7)
 
         )
 
     )
 
-    # !!! DON'T MAP, IT'S A MODIFIER !!!
-    # ~~[ THROTTLE / BTN 6 ]~~>>   | Fire D | Thumb | Right MIDDLE
-    # x52_pro.button(6).map_to(
+    # ~~[ THROTTLE / BTN 6  ]~~>>    BUTTONS / THROTTLE --- MIDDLE
+    x52_pro.button(6).map_to(
 
-    #     action(
+        action(
 
-    #         label = "",
+            label = "VKB T-Rudder T-Link", # Differential brakes
 
-    #         joy_modifiers = (),
-    #         command = vjoy(0).button(6)
+            joy_modifiers = (),
+            command       = vjoy(4).button(0)
 
-    #     ),
+        )
 
-    #     action(
+    )
 
-    #         label = "",
-
-    #         joy_modifiers = (modifier1),
-    #         command = vjoy(1).button(6)
-
-    #     ),
-
-    #     action(
-
-    #         label = "",
-
-    #         joy_modifiers = (modifier2),
-    #         command = vjoy(2).button(6)
-
-    #     )
-
-    # )
-
-    # !!! DON'T MAP, IT'S A MODIFIER !!!
-    # ~~[ THROTTLE / BTN 30 ]~~>>  | Clutch | Thumb | Right BOTTOM
-    # x52_pro.button(30).map_to(
-
-    #     action(
-
-    #         label = "",
-
-    #         joy_modifiers = (),
-    #         command = vjoy(0).button(30)
-
-    #     ),
-
-    #     action(
-
-    #         label = "",
-
-    #         joy_modifiers = (modifier1),
-    #         command = vjoy(1).button(30)
-
-    #     ),
-
-    #     action(
-
-    #         label = "",
-
-    #         joy_modifiers = (modifier2),
-    #         command = vjoy(2).button(30)
-
-    #     )
-
-    # )
-
-    # ~~[ THROTTLE / BTN 15 ]~~>>  | Left Mouse Button | Thumb | Deep BOTTOM
+    # ~~[ THROTTLE / BTN 30 ]~~>>    BUTTONS / THROTTLE --- BOTTOM
+    # ~~[ THROTTLE / BTN 15 ]~~>>    BUTTONS / THROTTLE --- Mouse Click BOTTOM
     x52_pro.button(15).map_to(
+
+        action(
+
+            label = "OpenTrack Recenter",
+
+            joy_modifiers = (),
+            command = (
+                vjoy(0).button(0)
+            )
+        ),
+
+        action(
+
+            label = "OpenTrack Freeze",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(0).button(1)
+        )
+
+    )
+
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / THROTTLE MOUSE WHEEL
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    # ~~[ THROTTLE / WHEEL BTN 18 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- DOWN
+    x52_pro.button(18).map_to(
 
         action(
 
             label = "",
 
             joy_modifiers = (),
-            command = vjoy(0).button(15)
+            command = vjoy(0).button(18)
 
         ),
 
@@ -915,8 +343,8 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
-            command = vjoy(1).button(15)
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(18)
 
         ),
 
@@ -924,19 +352,83 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
-            command = vjoy(2).button(15)
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(18)
+
+        )
+
+    )
+
+    # ~~[ THROTTLE / WHEEL BTN 16 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL FWD
+    x52_pro.button(16).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(16)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(16)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(16)
+
+        )
+
+    )
+
+    # ~~[ THROTTLE / WHEEL BTN 17 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL AFT
+    x52_pro.button(17).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(17)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(17)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(17)
 
         )
 
     )
 
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >    THROTTLE - MFD BUTTONS   < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   BUTTONS / THROTTLE MFD
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    # ~~[ THROTTLE / MFD BTN 31 ]~~>>  | Left Wheel | CLICK
+    # ~~[ THROTTLE / MFD BTN 31 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel DOWN
     x52_pro.button(31).map_to(
 
         action(
@@ -952,7 +444,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(31)
 
         ),
@@ -961,14 +453,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(31)
 
         )
 
     )
 
-    # ~~[ THROTTLE / MFD BTN 34 ]~~>>   | Left Wheel | Scroll UP
+    # ~~[ THROTTLE / MFD BTN 34 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel SCROLL FWD
     x52_pro.button(34).map_to(
 
         action(
@@ -984,7 +476,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(34)
 
         ),
@@ -993,14 +485,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(34)
 
         )
 
     )
 
-    # ~~[ THROTTLE / MFD BTN 35 ]~~>>   | Left Wheel | Scroll DOWN
+    # ~~[ THROTTLE / MFD BTN 35 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel SCROLL AFT
     x52_pro.button(35).map_to(
 
         action(
@@ -1016,7 +508,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(35)
 
         ),
@@ -1025,14 +517,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(35)
 
         )
 
     )
 
-    # ~~[ THROTTLE / MFD BTN 32 ]~~>>   | Middle     | Button ABOVE
+    # ~~[ THROTTLE / MFD BTN 32 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER TOP
     x52_pro.button(32).map_to(
 
         action(
@@ -1048,7 +540,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(32)
 
         ),
@@ -1057,14 +549,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(32)
 
         )
 
     )
 
-    # ~~[ THROTTLE / MFD BTN 33 ]~~>>   | Middle     | Button BELOW
+    # ~~[ THROTTLE / MFD BTN 33 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER BOTTOM
     x52_pro.button(33).map_to(
 
         action(
@@ -1080,7 +572,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(33)
 
         ),
@@ -1089,14 +581,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(33)
 
         )
 
     )
 
-    # ~~[ THROTTLE / MFD BTN 38 ]~~>>  | Right Wheel | CLICK
+    # ~~[ THROTTLE / MFD BTN 38 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel DOWN
     x52_pro.button(38).map_to(
 
         action(
@@ -1112,7 +604,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(38)
 
         ),
@@ -1121,14 +613,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(38)
 
         )
 
     )
 
-    # ~~[ THROTTLE / MFD BTN 36 ]~~>>   | Right Wheel | Scroll UP
+    # ~~[ THROTTLE / MFD BTN 36 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel FWD
     x52_pro.button(36).map_to(
 
         action(
@@ -1144,7 +636,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(36)
 
         ),
@@ -1153,14 +645,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(36)
 
         )
 
     )
 
-    # ~~[ THROTTLE / MFD BTN 37 ]~~>>   | Right Wheel | Scroll DOWN
+    # ~~[ THROTTLE / MFD BTN 37 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel AFT
     x52_pro.button(37).map_to(
 
         action(
@@ -1176,7 +668,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(1).button(37)
 
         ),
@@ -1185,7 +677,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(2).button(37)
 
         )
@@ -1193,18 +685,353 @@ def x52_pro_mapping():
     )
 
 
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // SWITCHES                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
 
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    ###|                                                                            |
-    ###|  INFO: Mapping - POVs                                                      |
-    ###|                                                                            |
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   SWITCHES / STICK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # > > > >        STICK - POVS         < < < <
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # ~~[ STICK / SWITCH BTN 8  ]~~>>    SWITCHES / STICK --- LEFT FWD
+    x52_pro.button(8).map_to(
 
-    # ~~[ STICK / POV 0 | N ]~~   | Pov 1 | Thumb | Middle BOTTOM
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(8)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(8)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(8)
+
+        )
+
+    )
+
+    # ~~[ STICK / SWITCH BTN 9  ]~~>>    SWITCHES / STICK --- LEFT AFT
+    x52_pro.button(9).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(9)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(9)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(9)
+
+        )
+
+    )
+
+    # ~~[ STICK / SWITCH BTN 10 ]~~>>    SWITCHES / STICK --- CENTER FWD
+    x52_pro.button(10).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(10)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(10)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(10)
+
+        )
+
+    )
+
+    # ~~[ STICK / SWITCH BTN 11 ]~~>>    SWITCHES / STICK --- CENTER AFT
+    x52_pro.button(11).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(11)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(11)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(11)
+
+        )
+
+    )
+
+    # ~~[ STICK / SWITCH BTN 12 ]~~>>    SWITCHES / STICK --- RIGHT FWD
+    x52_pro.button(12).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(12)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(12)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(12)
+
+        )
+
+    )
+
+    # ~~[ STICK / SWITCH BTN 13 ]~~>>    SWITCHES / STICK --- RIGHT AFT
+    x52_pro.button(13).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(13)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(13)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(13)
+
+        )
+
+    )
+
+
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // POVS                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   POV / STICK   [TOP LEFT | 4-Way]
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    # ~~[ STICK / POV BTN 19 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat FWD
+    x52_pro.button(19).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(19)
+
+        ),
+        
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(19)
+
+        ),
+        
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(11)
+
+        )
+
+    )
+
+    # ~~[ STICK / POV BTN 20 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat RIGHT 
+    x52_pro.button(20).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(20)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(20)
+
+        ),
+
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(12)
+
+        )
+
+    )
+
+    # ~~[ STICK / POV BTN 21 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat AFT
+    x52_pro.button(21).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(21)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(21)
+
+        ),
+
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(13)
+
+        )
+
+    )
+
+    # ~~[ STICK / POV BTN 22 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat LEFT 
+    x52_pro.button(22).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(22)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(22)
+
+        ),
+
+        action(
+
+            label = "SRS Radio Bind",
+
+            joy_modifiers = (modifier_clutch),
+            command       = vjoy(0).button(10)
+
+        )
+
+    )
+
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   POV / STICK   [BOTTOM CENTER - 8-Way]
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    # ~~[ STICK / POV 0 | N  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- North
     x52_pro.pov(0).cardinal('N').map_to(
 
         action(
@@ -1220,7 +1047,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('N')
 
         ),
@@ -1229,14 +1056,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('N')
 
         )
 
     )
 
-    # ~~[ STICK / POV 0 | NE ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / POV 0 | NE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northeast
     x52_pro.pov(0).cardinal('NE').map_to(
 
         action(
@@ -1252,7 +1079,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('NE')
 
         ),
@@ -1261,14 +1088,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('NE')
 
         )
 
     )
 
-    # ~~[ STICK / POV 0 | E ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / POV 0 | E  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- East
     x52_pro.pov(0).cardinal('E').map_to(
 
         action(
@@ -1284,7 +1111,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('E')
 
         ),
@@ -1293,14 +1120,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('E')
 
         )
 
     )
 
-    # ~~[ STICK / POV 0 | SE ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / POV 0 | SE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southeast
     x52_pro.pov(0).cardinal('SE').map_to(
 
         action(
@@ -1316,7 +1143,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('SE')
 
         ),
@@ -1325,14 +1152,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('SE')
 
         )
 
     )
 
-    # ~~[ STICK / POV 0 | S ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / POV 0 | S  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- South
     x52_pro.pov(0).cardinal('S').map_to(
 
         action(
@@ -1348,7 +1175,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('S')
 
         ),
@@ -1357,14 +1184,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('S')
 
         )
 
     )
 
-    # ~~[ STICK / POV 0 | SW ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / POV 0 | SW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southwest
     x52_pro.pov(0).cardinal('SW').map_to(
 
         action(
@@ -1380,7 +1207,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('SW')
 
         ),
@@ -1389,14 +1216,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('SW')
 
         )
 
     )
 
-    # ~~[ STICK / POV 0 | W ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / POV 0 | W  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- West
     x52_pro.pov(0).cardinal('W').map_to(
 
         action(
@@ -1412,7 +1239,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('W')
 
         ),
@@ -1421,14 +1248,14 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('W')
 
         )
 
     )
 
-    # ~~[ STICK / POV 0 | NW ]~~   | Pov 1 | Thumb | Middle BOTTOM
+    # ~~[ STICK / POV 0 | NW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northwest
     x52_pro.pov(0).cardinal('NW').map_to(
 
         action(
@@ -1444,7 +1271,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier1),
+            joy_modifiers = (modifier_pinkie),
             command = vjoy(0).pov(1).cardinal('NW')
 
         ),
@@ -1453,7 +1280,7 @@ def x52_pro_mapping():
 
             label = "",
 
-            joy_modifiers = (modifier2),
+            joy_modifiers = (modifier_clutch),
             command = vjoy(0).pov(2).cardinal('NW')
 
         )
@@ -1461,19 +1288,156 @@ def x52_pro_mapping():
     )
 
 
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   POV / THROTTLE   [TOP | 4-Way]
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    ###|                                                                            |
-    ###|  INFO: Mapping - Axis                                                      |
-    ###|                                                                            |
-    ###|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    # ~~[ THROTTLE / POV BTN 25 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat FWD
+    x52_pro.button(25).map_to(
 
-    deadzone_minimum = 2.3
+        action(
 
-    linear_curve_dz = Filter.Curve(
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(25)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(25)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(25)
+
+        )
+
+    )
+
+    # ~~[ THROTTLE / POV BTN 24 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat RIGHT
+    x52_pro.button(24).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(24)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(24)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(24)
+
+        )
+
+    )
+
+    # ~~[ THROTTLE / POV BTN 23 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat AFT
+    x52_pro.button(23).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(23)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(23)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(23)
+
+        )
+
+    )
+
+    # ~~[ THROTTLE / POV BTN 26 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat LEFT
+    x52_pro.button(26).map_to(
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (),
+            command = vjoy(0).button(26)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_pinkie),
+            command = vjoy(1).button(26)
+
+        ),
+
+        action(
+
+            label = "",
+
+            joy_modifiers = (modifier_clutch),
+            command = vjoy(2).button(26)
+
+        )
+
+    )
+
+
+    #* ///////////////////////////////////////////////////////////////////////////////
+    #* //                                                                           
+    #* // AXES                                                         
+    #* //                                                                           
+    #* ///////////////////////////////////////////////////////////////////////////////
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   AXES / STICK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    #stick_deadzone = 2.3
+    stick_deadzone = 0
+
+    stick_curve = Filter.Curve(
 
         max_value    = joy_axis_max,
-        deadzone     = deadzone_minimum,
+        deadzone     = stick_deadzone,
         saturation_x = 100,
         saturation_y = 100,
         curvature    = 0
@@ -1486,7 +1450,7 @@ def x52_pro_mapping():
         vjoy(0).axis('x').filtered_with(
 
             curve_filters = (
-                linear_curve_dz
+                stick_curve
             )
 
         )
@@ -1499,7 +1463,7 @@ def x52_pro_mapping():
         vjoy(0).axis('y').filtered_with(
 
             curve_filters = (
-                linear_curve_dz
+                stick_curve
             )
 
         )
@@ -1512,12 +1476,17 @@ def x52_pro_mapping():
         vjoy(0).axis('rz').filtered_with(
 
             curve_filters = (
-                linear_curve_dz
+                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
             )
 
         )
 
     )
+
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   AXES / THROTTLE
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / AXIS Z ]~~
     x52_pro.axis('z').map_to(
@@ -1540,7 +1509,7 @@ def x52_pro_mapping():
 
     )
 
-    # ~~[ THROTTLE / AXIS SLIDER ]~~
+    # ~~[ THROTTLE / AXIS SLIDER1 ]~~
     x52_pro.axis('slider1').map_to(
 
         vjoy(0).axis('slider1').filtered_with(
@@ -1548,9 +1517,44 @@ def x52_pro_mapping():
             invert = True,
 
             curve_filters = (
-                Filter.Kalman(process_noise = 0.001, sensor_noise = 10000000, estimated_error = 100, radius = 0.04 * joy_axis_max, delay_radius_count = 17),
-                #Filter.LowPass(smoothing_factor = 0.000001, radius = 0.035 * joy_axis_max),
-                Filter.MinMax(-joy_axis_max, 0 * joy_axis_max)
+
+                Filter.Kalman(
+                    process_noise = 0.001, 
+                    sensor_noise = 10000000, 
+                    estimated_error = 100, 
+                    radius = 0.04 * joy_axis_max, 
+                    delay_radius_count = 17
+                ),
+
+                # Filter.LowPass(
+                #     smoothing_factor = 0.000001, 
+                #     radius = 0.035 * joy_axis_max
+                # ),
+
+                Filter.MinMax(-1 * joy_axis_max, 0.5 * joy_axis_max)
+
+            )
+
+        )
+
+    )
+
+
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # > > > >   AXES / REGISTRY HACK
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # The following axis doesn't physically exist on the x52 pro.
+    # However a registry hack allows it to virtually exist (e.g. by mapping one mouse mini-stick axis to it).
+
+    # ~~[ REGISTRY HACK / AXIS SLIDER2 ]~~
+    x52_pro.axis('slider2').map_to(
+
+        vjoy(0).axis('slider2').filtered_with(
+
+            invert = True,
+            
+            curve_filters = (
+                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
             )
 
         )
@@ -1558,6 +1562,3 @@ def x52_pro_mapping():
     )
 
     return x52_pro
-
-def custom_code_in_loop():
-    pass

@@ -1,3 +1,4 @@
+#: T45
 from src.client.client_interface import joy, vjoy, action, threshold, sequence, transfer, Filter
 from src.helpers.freepie_vars    import FreePieVars
 
@@ -27,10 +28,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Gun Trigger - SECOND DETENT (Press to shoot)",
+            label = "Guns Fire",
 
             joy_modifiers = (),
-            command = 'Space'
+            command       = 'Space'
 
         )
 
@@ -42,10 +43,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Weapon Release",
+            label = "Weapons Release",
 
             joy_modifiers = (),
-            command       = 'Right Alt + Space'
+            command       = 'Left Alt + Space'
 
         )
 
@@ -53,46 +54,15 @@ def x52_pro_mapping():
 
     # ~~[ STICK / BTN 2  ]~~>>    BUTTONS / STICK --- Thumb TOP RIGHT
     # ~~[ STICK / BTN 3  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM RIGHT
-    x52_pro.button(3).map_to(
-
-        action(
-
-            label = "Cage/Uncage",
-
-            joy_modifiers = (),
-            command       = 'C'
-
-        ),
-
-        action(
-
-            label = "Sensor Control Switch - Depress",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + Enter' # not a default shortcut!
-
-        )
-
-    )
-
     # ~~[ STICK / BTN 4  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM LEFT
     x52_pro.button(4).map_to(
 
         action(
 
-            label = "Undesignate/Nose Wheel Steer Switch",
+            label = "Nose Wheel Steering Button",
 
             joy_modifiers = (),
             command       = 'S'
-
-        ),
-
-        action(
-
-            label = "Autopilot/Nosewheel Steering Disengage (Paddle) Switch",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'A'
 
         )
 
@@ -106,28 +76,6 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / BTN 7  ]~~>>    BUTTONS / THROTTLE --- TOP
-    x52_pro.button(7).map_to(
-
-        action(
-
-            label = "Throttle Designator Controller - Depress",
-
-            joy_modifiers = (),
-            command       = 'Enter'
-
-        ),
-
-        action(
-
-            label = "RAID/FLIR FOV Select Button",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'i'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / BTN 6  ]~~>>    BUTTONS / THROTTLE --- MIDDLE
     x52_pro.button(6).map_to(
 
@@ -172,64 +120,9 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / WHEEL BTN 18 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- DOWN
-    x52_pro.button(18).map_to(
-
-        action(
-
-            label = "Toggle goggles", # NVG
-
-            joy_modifiers = (),
-            command       = 'Right Shift + H'
-
-        ),
-
-        action(
-
-            label = "Exterior Light Switch - ON/OFF",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'L'
-
-        ),
-
-        action(
-
-            label = "RECCE Event Mark Switch", # Turn ON/OFF HMD
-
-            joy_modifiers = (modifier_pinkie, modifier_clutch),
-            command       = 'R'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / WHEEL BTN 16 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL FWD
-    x52_pro.button(16).map_to(
-
-        action(
-
-            label = "Gain goggles up", # NVG
-
-            joy_modifiers = (),
-            command       = 'Right Control + Right Shift + H'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / WHEEL BTN 17 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL AFT
-    x52_pro.button(17).map_to(
 
-        action(
-
-            label = "Gain goggles down", # NVG
-
-            joy_modifiers = (),
-            command       = 'Right Alt + Right Shift + H'
-
-        )
-
-    )
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # > > > >   BUTTONS / THROTTLE MFD
@@ -240,63 +133,24 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Flaps Down",
+            label = "Flap Switch DOWN",
 
             joy_modifiers = (),
-            command       = 'Left Alt + Left Control + F'
+            command       = 'Left Control + F'
 
         )
 
     )
-
+    
     # ~~[ THROTTLE / MFD BTN 34 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel SCROLL FWD
-    x52_pro.button(34).map_to(
-
-        action(
-
-            label = "Throttle (Left) - IDLE", speech_text="Throttle Left IDLE",
-
-            joy_modifiers = (),
-            command       = 'Right Alt + Home'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / MFD BTN 35 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel SCROLL AFT
-    x52_pro.button(35).map_to(
-
-        action(
-
-            label = "Throttle (Left) - OFF", speech_text="Throttle Left OFF",
-
-            joy_modifiers = (),
-            command       = 'Right Alt + End'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / MFD BTN 32 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER TOP
-    x52_pro.button(32).map_to(
-
-        action(
-
-            label = "ATC Engage/Disengage Switch", speech_text="ATC",
-
-            joy_modifiers = (),
-            command       = 'T'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / MFD BTN 33 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER BOTTOM
     x52_pro.button(33).map_to(
 
         action(
 
-            label = "Landing Gear Control Handle - UP/DOWN", speech_text="Landing Gear",
+            label = "Landing Gear - UP/DOWN", speech_text="Landing Gear",
 
             joy_modifiers = (),
             command       = 'G'
@@ -310,42 +164,17 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Flaps Up",
+            label = "Flap Switch UP",
 
             joy_modifiers = (),
-            command       = 'Left Alt + Left Shift + F'
+            command       = 'F'
 
         )
 
     )
 
     # ~~[ THROTTLE / MFD BTN 36 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel FWD
-    x52_pro.button(36).map_to(
-
-        action(
-
-            label = "Throttle (Right) - IDLE", speech_text="Throttle Right IDLE",
-
-            joy_modifiers = (),
-            command       = 'Right Shift + Home'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / MFD BTN 37 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel AFT
-    x52_pro.button(37).map_to(
-
-        action(
-
-            label = "Throttle (Right) - OFF", speech_text="Throttle Right OFF",
-
-            joy_modifiers = (),
-            command       = 'Right Shift + End'
-
-        )
-
-    )
 
 
     #* ///////////////////////////////////////////////////////////////////////////////
@@ -363,7 +192,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Master Arm Switch: Arm/Safe",
+            label = "Master Arm Toggle",
 
             joy_modifiers = (),
             command       = 'M'
@@ -373,92 +202,10 @@ def x52_pro_mapping():
     )
 
     # ~~[ STICK / SWITCH BTN 9  ]~~>>    SWITCHES / STICK --- LEFT AFT
-    x52_pro.button(9).map_to(
-
-        action(
-
-            label = "MASTER CAUTION Reset Button",
-
-            joy_modifiers = (),
-            command       = 'N'
-
-        )
-
-    )
-
     # ~~[ STICK / SWITCH BTN 10 ]~~>>    SWITCHES / STICK --- CENTER FWD
-    x52_pro.button(10).map_to(
-
-        action(
-
-            label = "Master Mode: A/A",
-
-            joy_modifiers = (),
-            command       = '1'
-
-        )
-
-    )
-
     # ~~[ STICK / SWITCH BTN 11 ]~~>>    SWITCHES / STICK --- CENTER AFT
-    x52_pro.button(11).map_to(
-
-        action(
-
-            label = "Master Mode: A/G",
-
-            joy_modifiers = (),
-            command       = '2'
-
-        )
-
-    )
-
     # ~~[ STICK / SWITCH BTN 12 ]~~>>    SWITCHES / STICK --- RIGHT FWD
-    x52_pro.button(12).map_to(
-
-        action(
-
-            label = "Show pilot body",
-
-            joy_modifiers = (),
-            command       = 'Right Shift + P'
-
-        ),
-        
-        action(
-
-            label = "Control Stick - HIDE/SHOW",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Backspace'
-
-        ),
-        
-        action(
-
-            label = "Show controls indicator",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Control + Enter'
-
-        )
-
-    )
-
     # ~~[ STICK / SWITCH BTN 13 ]~~>>    SWITCHES / STICK --- RIGHT AFT
-    x52_pro.button(13).map_to(
-
-        action(
-
-            label = "Flashlight",
-
-            joy_modifiers = (),
-            command       = 'Left Alt + L'
-
-        )
-
-    )
 
 
     #* ///////////////////////////////////////////////////////////////////////////////
@@ -476,22 +223,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trimmer Switch - PULL (CLIMB)", # Elevator Trim UP
+            label = "Trim Hat - NOSE DOWN",
 
             joy_modifiers = (),
-            command       = 'Right Control + .'
+            command       = 'Right Control + ;'
 
         ),
-
-        action(
-
-            label = "Dispense Switch - Forward(CHAFF)/Center(OFF)",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'E'
-
-        ),
-
+        
         action(
 
             label = "SRS Radio Bind",
@@ -508,13 +246,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trimmer Switch - RIGHT WING DOWN", # Ailreon Trim RIGHT WING DOWN
+            label = "Trim Hat - NOSE RIGHT",
 
             joy_modifiers = (),
             command       = 'Right Control + /'
 
         ),
-
+        
         action(
 
             label = "SRS Radio Bind",
@@ -531,22 +269,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trimmer Switch - PUSH(DESCEND)", # Elevator Trim DOWN
+            label = "Trim Hat - NOSE UP",
 
             joy_modifiers = (),
-            command       = 'Right Control + ;'
+            command       = 'Right Control + .'
 
         ),
-
-        action(
-
-            label = "Dispense Switch - Aft(FLARE)/Center(OFF)",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'D'
-
-        ),
-
+        
         action(
 
             label = "SRS Radio Bind",
@@ -563,13 +292,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Trimmer Switch - LEFT WING DOWN", # Ailreon Trim LEFT WING DOWN
+            label = "Trim Hat - NOSE LEFT",
 
             joy_modifiers = (),
             command       = 'Right Control + ,'
 
         ),
-
+        
         action(
 
             label = "SRS Radio Bind",
@@ -581,105 +310,18 @@ def x52_pro_mapping():
 
     )
 
+
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # > > > >   POV / STICK   [BOTTOM CENTER - 8-Way]
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ STICK / POV 0 | N  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- North
-    x52_pro.pov(0).cardinal('N').map_to(
-
-        action(
-
-            label = "Select Sparrow", speech_text="FOX 1 AIM-7",
-
-            joy_modifiers = (),
-            command       = 'Left Shift + W'
-
-        ),
-
-        action(
-
-            label = "Sensor Control Switch - Fwd",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + ;'
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | NE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northeast
     # ~~[ STICK / POV 0 | E  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- East
-    x52_pro.pov(0).cardinal('E').map_to(
-
-        action(
-
-            label = "Select AMRAAM", speech_text="FOX 3 AIM-120",
-
-            joy_modifiers = (),
-            command       = 'Left Shift + D'
-
-        ),
-
-        action(
-
-            label = "Sensor Control Switch - Right",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + /'
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | SE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southeast
     # ~~[ STICK / POV 0 | S  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- South
-    x52_pro.pov(0).cardinal('S').map_to(
-
-        action(
-
-            label = "Select Sidewinder", speech_text="FOX 2 AIM-9",
-
-            joy_modifiers = (),
-            command       = 'Left Shift + S'
-
-        ),
-
-        action(
-
-            label = "Sensor Control Switch - Aft",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + .'
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | SW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southwest
     # ~~[ STICK / POV 0 | W  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- West
-    x52_pro.pov(0).cardinal('W').map_to(
-
-        action(
-
-            label = "Select Gun", speech_text="Gun",
-
-            joy_modifiers = (),
-            command       = 'Left Shift + X'
-
-        ),
-
-        action(
-
-            label = "Sensor Control Switch - Left",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + ,'
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | NW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northwest
 
 
@@ -688,96 +330,10 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / POV BTN 25 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat FWD
-    x52_pro.button(25).map_to(
-
-        action(
-
-            label = "Throttle Designator Controller - Up",
-
-            joy_modifiers = (),
-            command       = ';'
-
-        ),
-
-        action(
-
-            label = "Radar Elevation Control - Up",
-
-            joy_modifiers = (modifier_clutch),
-            command       = '='
-
-        ),
-
-        action(
-
-            label = "Speed Brake Retract",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Control + B'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / POV BTN 24 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat RIGHT
-    x52_pro.button(24).map_to(
-
-        action(
-
-            label = "Throttle Designator Controller - Right",
-
-            joy_modifiers = (),
-            command       = '/'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / POV BTN 23 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat AFT
-    x52_pro.button(23).map_to(
-
-        action(
-
-            label = "Throttle Designator Controller - Down",
-
-            joy_modifiers = (),
-            command       = '.'
-
-        ),
-
-        action(
-
-            label = "Radar Elevation Control - Down",
-
-            joy_modifiers = (modifier_clutch),
-            command       = '-'
-
-        ),
-
-        action(
-
-            label = "Speed Brake Extend",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Shift + B'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / POV BTN 26 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat LEFT
-    x52_pro.button(26).map_to(
 
-        action(
-
-            label = "Throttle Designator Controller - Left",
-
-            joy_modifiers = (),
-            command       = ','
-
-        )
-
-    )
 
     #* ///////////////////////////////////////////////////////////////////////////////
     #* //                                                                           
@@ -863,7 +419,9 @@ def x52_pro_mapping():
     # ~~[ THROTTLE / AXIS RY ]~~
     x52_pro.axis('ry').map_to(
 
-        vjoy(0).axis('ry')
+        vjoy(0).axis('ry').filtered_with(
+            invert = True
+        )
 
     )
 
@@ -889,7 +447,7 @@ def x52_pro_mapping():
                 #     radius = 0.035 * joy_axis_max
                 # ),
 
-                Filter.MinMax(-1 * joy_axis_max, 0 * joy_axis_max)
+                Filter.MinMax(-1 * joy_axis_max, 0.5 * joy_axis_max)
 
             )
 

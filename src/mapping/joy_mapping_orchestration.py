@@ -14,6 +14,10 @@ class JoyMappingsOrchestrator:
         for joy_mapping in self.joy_mappings:
             joy_mapping.map_in_loop()
 
+# !!! Considerate multiprocessing instead than multithreading
+# !!! In Python, because of GIL (Global Interpreter Lock) a single python 
+# !!! process cannot run threads in parallel (utilize multiple cores). It 
+# !!! can however run them concurrently (context switch during I/O bound operations).
 class AxesThread(threading.Thread):
     def __init__(self, threadID, name, joy_axes_transfer):
         threading.Thread.__init__(self)
