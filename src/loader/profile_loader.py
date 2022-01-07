@@ -129,7 +129,7 @@ class ProfileFileWatcher(threading.Thread):
                 # the profile filename and replace the rest with the pretty text
                 print_format = \
                     self._raw_profile_print.replace("\\", " -> ") if print_format is None else \
-                    self._raw_profile_print[:self._raw_profile_print.rfind("\\")-1].replace("\\", " -> ") + " -> " + print_format
+                    self._raw_profile_print[:self._raw_profile_print.rfind("\\")].replace("\\", " -> ") + " -> " + print_format
         else:
             # If no pretty text has been set for its profile name, then the original filename is used
             if print_format is None:
