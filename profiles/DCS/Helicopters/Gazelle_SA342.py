@@ -1,3 +1,4 @@
+#: Gazelle
 from src.client.client_interface import joy, vjoy, action, threshold, sequence, transfer, Filter
 from src.helpers.freepie_vars    import FreePieVars
 
@@ -23,11 +24,81 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ STICK / BTN 0  ]~~>>    BUTTONS / STICK --- Index First Stage TRIGGER
+    x52_pro.button(0).map_to(
+
+        action(
+
+            label = "Fire Gun or Rockets",
+
+            joy_modifiers = (),
+            command = 'Left Alt + Space'
+
+        )
+
+    )
+
     # ~~[ STICK / BTN 14 ]~~>>    BUTTONS / STICK --- Index Second Stage TRIGGER
     # ~~[ STICK / BTN 1  ]~~>>    BUTTONS / STICK --- Thumb TOP CENTER
+    x52_pro.button(1).map_to(
+
+        action(
+
+            label = "Missile Launch Button",
+
+            joy_modifiers = (),
+            command = 'Space'
+
+        )
+
+    )
+
     # ~~[ STICK / BTN 2  ]~~>>    BUTTONS / STICK --- Thumb TOP RIGHT
+    x52_pro.button(2).map_to(
+
+        action(
+
+            label = "Flare Dispenser Button Cover Toggle", # Custom bind
+
+            joy_modifiers = (modifier_pinkie),
+            command = 'Right Control + Insert'
+
+        )
+
+    )
+
     # ~~[ STICK / BTN 3  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM RIGHT
     # ~~[ STICK / BTN 4  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM LEFT
+    x52_pro.button(4).map_to(
+
+        action(
+
+            label = "Pilot Trimmer",
+
+            joy_modifiers = (),
+            command       = 'T'
+
+        ),
+
+        action(
+
+            label = "Trimmer reset",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'Left Control + T'
+
+        ),
+
+        action(
+
+            label = "auto-hover",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Q'
+
+        )
+
+    )
+
     # ~~[ STICK / BTN 5  ]~~>>    BUTTONS / STICK --- Pinkie
 
 
@@ -36,6 +107,37 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / BTN 7  ]~~>>    BUTTONS / THROTTLE --- TOP
+    x52_pro.button(7).map_to(
+
+        action(
+
+            label = "auto-slaved",
+
+            joy_modifiers = (),
+            command       = 'E'
+
+        ),
+
+        action(
+
+            label = "Lasing Button",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Enter' # Custom bind
+
+        ),
+
+        action(
+
+            label = "Camera Centering", # Video Command Box
+
+            joy_modifiers = (modifier_clutch, modifier_pinkie),
+            command       = 'Right Control + I'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / BTN 6  ]~~>>    BUTTONS / THROTTLE --- MIDDLE
     x52_pro.button(6).map_to(
 
@@ -80,8 +182,64 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / WHEEL BTN 18 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- DOWN
+    x52_pro.button(18).map_to(
+
+        action(
+
+            label = "Night Vision Goggles On/Off",
+
+            joy_modifiers = (),
+            command       = 'Right Shift + H'
+
+        ),
+
+        action(
+
+            label = "Landing light On/Off",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'Right Alt + L'
+
+        ),
+
+        action(
+
+            label = "pilot sight",
+
+            joy_modifiers = (modifier_clutch, modifier_pinkie),
+            command       = 'I'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / WHEEL BTN 16 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL FWD
+    x52_pro.button(16).map_to(
+
+        action(
+
+            label = "Night Vision Goggles Gain Up", # NVG
+
+            joy_modifiers = (),
+            command       = 'Right Control + Right Shift + H'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / WHEEL BTN 17 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL AFT
+    x52_pro.button(17).map_to(
+
+        action(
+
+            label = "Night Vision Goggles Gain Down", # NVG
+
+            joy_modifiers = (),
+            command       = 'Right Alt + Right Shift + H'
+
+        )
+
+    )
 
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -109,10 +267,45 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ STICK / SWITCH BTN 8  ]~~>>    SWITCHES / STICK --- LEFT FWD
+    x52_pro.button(8).map_to(
+
+        action(
+
+            label = "Master Arm Switch: Arm/Safe",
+
+            joy_modifiers = (),
+            command       = 'Right Alt + W'
+
+        )
+
+    )
+
     # ~~[ STICK / SWITCH BTN 9  ]~~>>    SWITCHES / STICK --- LEFT AFT
     # ~~[ STICK / SWITCH BTN 10 ]~~>>    SWITCHES / STICK --- CENTER FWD
     # ~~[ STICK / SWITCH BTN 11 ]~~>>    SWITCHES / STICK --- CENTER AFT
     # ~~[ STICK / SWITCH BTN 12 ]~~>>    SWITCHES / STICK --- RIGHT FWD
+    x52_pro.button(12).map_to(
+
+        action(
+
+            label = "Show pilot body",
+
+            joy_modifiers = (),
+            command       = 'Right Shift + P'
+
+        ),
+        
+        action(
+
+            label = "Show controls indicator",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Right Control + Enter'
+
+        )
+
+    )
+
     # ~~[ STICK / SWITCH BTN 13 ]~~>>    SWITCHES / STICK --- RIGHT AFT
 
 
@@ -159,6 +352,15 @@ def x52_pro_mapping():
 
         action(
 
+            label = "start dispensing",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'Insert'
+
+        ),
+        
+        action(
+
             label = "SRS Radio Bind",
 
             joy_modifiers = (modifier_clutch),
@@ -188,12 +390,82 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ STICK / POV 0 | N  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- North
+    x52_pro.pov(0).cardinal('N').map_to(
+
+        action(
+
+            label = "Station 2 Select", speech_text="Station 2", # HOT3 Missile
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Left Alt + 2'
+
+        )
+
+    )
+
     # ~~[ STICK / POV 0 | NE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northeast
     # ~~[ STICK / POV 0 | E  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- East
+    x52_pro.pov(0).cardinal('E').map_to(
+
+        action(
+
+            label = "Right Pylon Arming Toggled ARMED/SAFE", speech_text="Right Pylon", # Custom bind
+
+            joy_modifiers = (),
+            command       = 'Left Control + 2'
+
+        ),
+
+        action(
+
+            label = "Station 3 Select", speech_text="Station 3", # HOT3 Missile
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Left Alt + 3'
+
+        )
+
+    )
+
     # ~~[ STICK / POV 0 | SE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southeast
     # ~~[ STICK / POV 0 | S  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- South
+    x52_pro.pov(0).cardinal('S').map_to(
+
+        action(
+
+            label = "Station 4 Select", speech_text="Station 4", # HOT3 Missile
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Left Alt + 4'
+
+        )
+
+    )
+
     # ~~[ STICK / POV 0 | SW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southwest
     # ~~[ STICK / POV 0 | W  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- West
+    x52_pro.pov(0).cardinal('W').map_to(
+
+        action(
+
+            label = "Left Pylon Arming Toggled ARMED/SAFE", speech_text="Left Pylon", # Custom bind
+
+            joy_modifiers = (),
+            command       = 'Left Control + 1'
+
+        ),
+
+        action(
+
+            label = "Station 1 Select", speech_text="Station 1", # HOT3 Missile
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Left Alt + 1'
+
+        )
+
+    )
+
     # ~~[ STICK / POV 0 | NW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northwest
 
 
@@ -202,9 +474,96 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / POV BTN 25 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat FWD
+    x52_pro.button(25).map_to(
+
+        action(
+
+            label = "Slew up",
+
+            joy_modifiers = (),
+            command       = ';'
+
+        ),
+        
+        action(
+
+            label = "VCB Zoom +",
+
+            joy_modifiers = (modifier_clutch),
+            command       = '='
+
+        ),
+
+        action(
+
+            label = "Landing Light Extebd",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'P'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / POV BTN 24 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat RIGHT
+    x52_pro.button(24).map_to(
+
+        action(
+
+            label = "Slew right",
+
+            joy_modifiers = (),
+            command       = '/'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / POV BTN 23 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat AFT
+    x52_pro.button(23).map_to(
+
+        action(
+
+            label = "Slew down",
+
+            joy_modifiers = (),
+            command       = '.'
+
+        ),
+        
+        action(
+
+            label = "VCB Zoom -",
+
+            joy_modifiers = (modifier_clutch),
+            command       = '-'
+
+        ),
+
+        action(
+
+            label = "Landing Light Retract",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'O'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / POV BTN 26 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat LEFT
+    x52_pro.button(26).map_to(
+
+        action(
+
+            label = "Slew left",
+
+            joy_modifiers = (),
+            command       = ','
+
+        )
+
+    )
 
 
     #* ///////////////////////////////////////////////////////////////////////////////
@@ -300,7 +659,7 @@ def x52_pro_mapping():
 
         vjoy(0).axis('slider1').filtered_with(
 
-            invert = True,
+            invert = False,
 
             curve_filters = (
 
@@ -317,7 +676,7 @@ def x52_pro_mapping():
                 #     radius = 0.035 * joy_axis_max
                 # ),
 
-                Filter.MinMax(-1 * joy_axis_max, 0 * joy_axis_max)
+                Filter.MinMax(-0.5 * joy_axis_max, 1 * joy_axis_max)
 
             )
 

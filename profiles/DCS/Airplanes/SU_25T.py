@@ -1,3 +1,4 @@
+#: SU-25T
 from src.client.client_interface import joy, vjoy, action, threshold, sequence, transfer, Filter
 from src.helpers.freepie_vars    import FreePieVars
 
@@ -27,37 +28,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Fire all guns",
+            label = "Weapon Fire",
 
             joy_modifiers = (),
             command       = 'Space'
-
-        ),
-
-        action(
-
-            label = "Fire weapon group 1",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + Space'
-
-        ),
-
-        action(
-
-            label = "Fire weapon group 2",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Left Alt + Space'
-
-        ),
-
-        action(
-
-            label = "Fire weapon group 3",
-
-            joy_modifiers = (modifier_pinkie, modifier_clutch),
-            command       = 'Right Control + Space'
 
         )
 
@@ -65,97 +39,9 @@ def x52_pro_mapping():
 
     # ~~[ STICK / BTN 14 ]~~>>    BUTTONS / STICK --- Index Second Stage TRIGGER
     # ~~[ STICK / BTN 1  ]~~>>    BUTTONS / STICK --- Thumb TOP CENTER
-    x52_pro.button(1).map_to(
-
-        action(
-
-            label = "Drop bombs, containers, paratroopers, emit smoke",
-
-            joy_modifiers = (),
-            command       = 'B'
-
-        ),
-
-        action(
-
-            label = "Drop bombs mode toggle",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Win + B'
-
-        )
-
-    )
-
     # ~~[ STICK / BTN 2  ]~~>>    BUTTONS / STICK --- Thumb TOP RIGHT
-    x52_pro.button(2).map_to(
-
-        action(
-
-            label = "Launch rockets",
-
-            joy_modifiers = (),
-            command       = 'R'
-
-        ),
-
-        action(
-
-            label = "Launch rockets mode toggle",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Win + R'
-
-        )
-
-    )
-
     # ~~[ STICK / BTN 3  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM RIGHT
-    x52_pro.button(3).map_to(
-
-        action(
-
-            label = "Jettison stores",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Shift + D'
-
-        ),
-
-        action(
-
-            label = "Switch oil radiators control mode: manual/auto",  speech_text="Oil mode",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Win + R'
-
-        )
-
-    )
-
     # ~~[ STICK / BTN 4  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM LEFT
-    x52_pro.button(4).map_to(
-
-        action(
-
-            label = "Tail wheel lock/unlock",
-
-            joy_modifiers = (),
-            command       = 'Left Shift + G'
-
-        ),
-
-        action(
-
-            label = "Switch water radiators control mode: manual/auto",  speech_text="Water mode",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Control + R'
-
-        )
-
-    )
-
     # ~~[ STICK / BTN 5  ]~~>>    BUTTONS / STICK --- Pinkie
 
 
@@ -164,37 +50,15 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / BTN 7  ]~~>>    BUTTONS / THROTTLE --- TOP
-    x52_pro.button(7).map_to(
-
-        action(
-
-            label = "Switch propellers pitch control mode: manual/auto",  speech_text="Prop mode",
-
-            joy_modifiers = (),
-            command       = 'Right Shift + P'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / BTN 6  ]~~>>    BUTTONS / THROTTLE --- MIDDLE
     x52_pro.button(6).map_to(
 
         action(
 
-            label = "VKB T-Rudder T-Link", # Differential brakes
+            label = "Wheel Brake On",
 
             joy_modifiers = (),
-            command       = vjoy(4).button(0)
-
-        ),
-
-        action(
-
-            label = "Wheel brakes",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = '/'
+            command       = 'W'
 
         )
 
@@ -230,37 +94,6 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / WHEEL BTN 18 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- DOWN
-    x52_pro.button(18).map_to(
-
-        action(
-
-            label = "Switch engines boost: on/off", speech_text='Boost mode',
-
-            joy_modifiers = (),
-            command       = 'Left Shift + B'
-
-        ),
-
-        action(
-
-            label = "Interconnect throttle and turbo controlls on/off", 
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Alt + I'
-
-        ),
-
-        action(
-
-            label = "Engine superchargers mode switch", speech_text='Supercharger mode', 
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Left Shift + S'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / WHEEL BTN 16 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL FWD
     # ~~[ THROTTLE / WHEEL BTN 17 ]~~>>    BUTTONS / THROTTLE MOUSE WHEEL --- SCROLL AFT
 
@@ -274,10 +107,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Flaps Down",
+            label = "Flaps Landing Position",
 
             joy_modifiers = (),
-            command       = 'F'
+            command       = 'Left Shift + F'
 
         )
 
@@ -290,19 +123,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "AI-autopilot for level flight: on/off",
+            label = "Canopy Open/Close",
 
             joy_modifiers = (),
-            command       = 'Left Shift + A'
-
-        ),
-
-        action(
-
-            label = "Propellers feathering: on/off", speech_text="Prop feathering",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Left Control + F'
+            command       = 'Left Control + C'
 
         )
 
@@ -313,19 +137,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Gear up/down", speech_text="Landing Gear",
+            label = "Landing Gear Up/Down",
 
             joy_modifiers = (),
             command       = 'G'
-
-        ),
-
-        action(
-
-            label = "Canopy open/close",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + C'
 
         )
 
@@ -339,7 +154,7 @@ def x52_pro_mapping():
             label = "Flaps Up",
 
             joy_modifiers = (),
-            command       = 'Left Shift + F'
+            command       = 'Left Control + F'
 
         )
 
@@ -360,57 +175,9 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ STICK / SWITCH BTN 8  ]~~>>    SWITCHES / STICK --- LEFT FWD
-    x52_pro.button(8).map_to(
-
-        action(
-
-            label = "Cockpit light on/off",
-
-            joy_modifiers = (),
-            command       = 'L'
-
-        )
-
-    )
-
     # ~~[ STICK / SWITCH BTN 9  ]~~>>    SWITCHES / STICK --- LEFT AFT
     # ~~[ STICK / SWITCH BTN 10 ]~~>>    SWITCHES / STICK --- CENTER FWD
-    x52_pro.button(10).map_to(
-
-        action(
-
-            label = "Navigation lights on/off",
-
-            joy_modifiers = (),
-            command       = 'Right Control + L'
-
-        ),
-
-        action(
-
-            label = "Formation lights on/off",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = 'Right Alt + L'
-
-        )
-
-    )
-
     # ~~[ STICK / SWITCH BTN 11 ]~~>>    SWITCHES / STICK --- CENTER AFT
-    x52_pro.button(11).map_to(
-
-        action(
-
-            label = "Landing lights on/off",
-
-            joy_modifiers = (),
-            command       = 'Right Shift + L'
-
-        )
-
-    )
-
     # ~~[ STICK / SWITCH BTN 12 ]~~>>    SWITCHES / STICK --- RIGHT FWD
     # ~~[ STICK / SWITCH BTN 13 ]~~>>    SWITCHES / STICK --- RIGHT AFT
 
@@ -430,13 +197,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Elevator trim up + Adjustable stabilizer pitch up", # Elevator Trim UP
+            label = "Trim Hat - NOSE UP",
 
             joy_modifiers = (),
-            command       = 'Right Control + Down Arrow'
+            command       = 'Right Control + .'
 
         ),
-        
+
         action(
 
             label = "SRS Radio Bind",
@@ -453,13 +220,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Aileron Trim right", # Ailreon Trim RIGHT WING DOWN
+            label = "Trim Hat - ROLL RIGHT",
 
             joy_modifiers = (),
-            command       = 'Right Control + Right Arrow'
+            command       = 'Right Control + /'
 
         ),
-        
+
         action(
 
             label = "SRS Radio Bind",
@@ -476,13 +243,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Elevator trim switch down + Adjustable stabilizer pitch down", # Elevator Trim DOWN
+            label = "Trim Hat - NOSE DOWN",
 
             joy_modifiers = (),
-            command       = 'Right Control + Up Arrow'
+            command       = 'Right Control + ;'
 
         ),
-        
+
         action(
 
             label = "SRS Radio Bind",
@@ -499,13 +266,13 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Aileron Trim left", # Ailreon Trim LEFT WING DOWN
+            label = "Trim Hat - ROLL LEFT",
 
             joy_modifiers = (),
-            command       = 'Right Control + Left Arrow'
+            command       = 'Right Control + ,'
 
         ),
-        
+
         action(
 
             label = "SRS Radio Bind",
@@ -523,100 +290,12 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ STICK / POV 0 | N  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- North
-    x52_pro.pov(0).cardinal('N').map_to(
-
-        action(
-
-            label = "Oil radiators shutters control open",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Win + ='
-
-        ),
-
-        action(
-
-            label = "Engines inlet cowl shutters control open",
-
-            joy_modifiers = (),
-            command       = 'Left Control + ='
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | NE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northeast
     # ~~[ STICK / POV 0 | E  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- East
-    x52_pro.pov(0).cardinal('E').map_to(
-
-        action(
-
-            label = "Water radiators shutter control open",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Control + ='
-
-        ),
-
-        action(
-
-            label = "Engines outlet cowl shutters control open",
-
-            joy_modifiers = (),
-            command       = 'Left Alt + ='
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | SE ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southeast
     # ~~[ STICK / POV 0 | S  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- South
-    x52_pro.pov(0).cardinal('S').map_to(
-
-        action(
-
-            label = "Oil radiators shutters control close",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Win + -'
-
-        ),
-
-        action(
-
-            label = "Engines inlet cowl shutters control close",
-
-            joy_modifiers = (),
-            command       = 'Left Control + -'
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | SW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Southwest
     # ~~[ STICK / POV 0 | W  ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- West
-    x52_pro.pov(0).cardinal('W').map_to(
-
-        action(
-
-            label = "Water radiators shutter control close",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Control + -'
-
-        ),
-
-        action(
-
-            label = "Engines outlet cowl shutters control close",
-
-            joy_modifiers = (),
-            command       = 'Left Alt + -'
-
-        )
-
-    )
-
     # ~~[ STICK / POV 0 | NW ]~~    POV / STICK   [BOTTOM CENTER - 8-Way] --- Northwest
 
 
@@ -625,34 +304,8 @@ def x52_pro_mapping():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # ~~[ THROTTLE / POV BTN 25 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat FWD
-    x52_pro.button(25).map_to(
-
-        action(
-
-            label = "Engines turbosupercharger control up",
-
-            joy_modifiers = (),
-            command       = 'Left Shift + ='
-
-        )
-
-    )
-
     # ~~[ THROTTLE / POV BTN 24 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat RIGHT
     # ~~[ THROTTLE / POV BTN 23 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat AFT
-    x52_pro.button(23).map_to(
-
-        action(
-
-            label = "Engines turbosupercharger control down",
-
-            joy_modifiers = (),
-            command       = 'Left Shift + -'
-
-        )
-
-    )
-
     # ~~[ THROTTLE / POV BTN 26 ]~~>>    POV / THROTTLE   [TOP | 4-Way] --- Hat LEFT
 
 
@@ -675,6 +328,16 @@ def x52_pro_mapping():
         deadzone     = stick_deadzone,
         saturation_x = 100,
         saturation_y = 100,
+        curvature    = 0
+
+    )
+
+    slew_curve = Filter.Curve(
+
+        max_value    = joy_axis_max,
+        deadzone     = stick_deadzone,
+        saturation_x = 100,
+        saturation_y = 50,
         curvature    = 0
 
     )
@@ -711,7 +374,7 @@ def x52_pro_mapping():
         vjoy(0).axis('rz').filtered_with(
 
             curve_filters = (
-                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
+                slew_curve
             )
 
         )
@@ -766,7 +429,7 @@ def x52_pro_mapping():
                 #     radius = 0.035 * joy_axis_max
                 # ),
 
-                Filter.MinMax(-0 * joy_axis_max, 1 * joy_axis_max)
+                Filter.MinMax(-0.5 * joy_axis_max, 1 * joy_axis_max)
 
             )
 
@@ -789,7 +452,7 @@ def x52_pro_mapping():
             invert = True,
             
             curve_filters = (
-                Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
+                slew_curve
             )
 
         )

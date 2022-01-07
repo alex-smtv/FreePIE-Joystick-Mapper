@@ -1,3 +1,4 @@
+#: KA 50
 from src.client.client_interface import joy, vjoy, action, threshold, sequence, transfer, Filter
 from src.helpers.freepie_vars    import FreePieVars
 
@@ -27,7 +28,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Pilot weapon release/Machinegun fire",
+            label = "Gun fire",
 
             joy_modifiers = (),
             command = 'Space'
@@ -42,7 +43,7 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Copilot weapon release",
+            label = "Release weapons",
 
             joy_modifiers = (),
             command       = 'Right Alt + Space'
@@ -52,6 +53,19 @@ def x52_pro_mapping():
     )
 
     # ~~[ STICK / BTN 2  ]~~>>    BUTTONS / STICK --- Thumb TOP RIGHT
+    x52_pro.button(2).map_to(
+
+        action(
+
+            label = "Autopilot Director control",
+
+            joy_modifiers = (),
+            command       = 'Left Control + A'
+
+        )
+
+    )
+
     # ~~[ STICK / BTN 3  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM RIGHT
     # ~~[ STICK / BTN 4  ]~~>>    BUTTONS / STICK --- Thumb BOTTOM LEFT
     x52_pro.button(4).map_to(
@@ -72,6 +86,15 @@ def x52_pro_mapping():
             joy_modifiers = (modifier_pinkie),
             command       = 'Left Control + T'
 
+        ),
+
+        action(
+
+            label = "Hover On/Off",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Left Alt + T'
+
         )
 
     )
@@ -88,10 +111,28 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Search Light On | Search Light Off",
+            label = "Uncage SHKVAL, designate target",
 
-            joy_modifiers = (modifier_pinkie),
-            command       = sequence.rotate(True).create('Right Control + ;', 'Right Alt + ;')
+            joy_modifiers = (),
+            command       = 'O'
+
+        ),
+
+        action(
+
+            label = "Lock target",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'Enter'
+
+        ),
+
+        action(
+
+            label = "Button Targetting mode reset",
+
+            joy_modifiers = (modifier_clutch, modifier_pinkie),
+            command       = 'Backspace'
 
         )
 
@@ -102,9 +143,18 @@ def x52_pro_mapping():
 
         action(
 
-            label = "VKB T-Rudder T-Link", # Differential brakes
+            label = "Zoom normal",
 
             joy_modifiers = (),
+            command       = 'Num Enter'
+
+        ),
+        
+        action(
+
+            label = "VKB T-Rudder T-Link", # Differential brakes
+
+            joy_modifiers = (modifier_pinkie),
             command       = vjoy(4).button(0)
 
         )
@@ -145,37 +195,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Night Vision Goggles",
+            label = "Helmet-mounted system On/Off", # NVG or HMS
 
             joy_modifiers = (),
-            command       = 'Right Shift + H'
+            command       = 'H'
 
         ),
 
         action(
 
-            label = "Toggle Flexible Sight", # Co-pilot
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'M'
-
-        ),
-
-        action(
-
-            label = "Landing Light Switch", # On/Off
+            label = "Light landing search On/Retraction/Off",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'Right Control + ,'
-
-        ),
-
-        action(
-
-            label = "Pilot Sight Armed/Docked",
-
-            joy_modifiers = (modifier_clutch, modifier_pinkie),
-            command       = 'Right Shift + M'
+            command       = 'Right Shift + L'
 
         )
 
@@ -186,36 +218,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Night Vision Goggles Gain Up",
+            label = "Helmet device brightness Up", # NVG or HMS
 
             joy_modifiers = (),
-            command       = 'Right Control + Right Shift + H'
-
-        ),
-
-        action(
-
-            label = "Flexible Sight Intensity Increase",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Control + O'
-
-        ),
-
-        action(
-
-            label = "Landing Light Extend | Landing Light Stop",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = sequence.rotate(True).create('Right Control + /', 'Right Alt + /')
-        ),
-        
-        action(
-
-            label = "Pilot Sight Intensity Increase",
-
-            joy_modifiers = (modifier_clutch, modifier_pinkie),
-            command       = 'Left Control + X'
+            command       = 'Right Alt + Right Ctrl + Right Shift + ]'
 
         )
 
@@ -226,36 +232,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Night Vision Goggles Gain Down",
+            label = "Helmet device brightness Down", # NVG or HMS
 
             joy_modifiers = (),
-            command       = 'Right Alt + Right Shift + H'
-
-        ),
-
-        action(
-
-            label = "Flexible Sight Intensity Decrease",
-
-            joy_modifiers = (modifier_clutch),
-            command       = 'Right Alt + O'
-
-        ),
-
-        action(
-
-            label = "Landing Light Retract | Landing Light Stop",
-
-            joy_modifiers = (modifier_pinkie),
-            command       = sequence.rotate(True).create('Right Win + /', 'Right Alt + /')
-        ),
-        
-        action(
-
-            label = "Pilot Sight Intensity Decrease",
-
-            joy_modifiers = (modifier_clutch, modifier_pinkie),
-            command       = 'Left Alt + X'
+            command       = 'Right Alt + Right Ctrl + Right Shift + ['
 
         )
 
@@ -271,6 +251,19 @@ def x52_pro_mapping():
     # ~~[ THROTTLE / MFD BTN 35 ]~~>>    BUTTONS / THROTTLE MFD --- Left Wheel SCROLL AFT
     # ~~[ THROTTLE / MFD BTN 32 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER TOP
     # ~~[ THROTTLE / MFD BTN 33 ]~~>>    BUTTONS / THROTTLE MFD --- CENTER BOTTOM
+    x52_pro.button(33).map_to(
+
+        action(
+
+            label = "Gear lever", speech_text="Landing Gear",
+
+            joy_modifiers = (),
+            command       = 'G'
+
+        )
+
+    )
+
     # ~~[ THROTTLE / MFD BTN 38 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel DOWN
     # ~~[ THROTTLE / MFD BTN 36 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel FWD
     # ~~[ THROTTLE / MFD BTN 37 ]~~>>    BUTTONS / THROTTLE MFD --- Right Wheel AFT
@@ -291,10 +284,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Armament Off/Safe/Armed Up | Armament Off/Safe/Armed Down",
+            label = "Master arm on/off",
 
             joy_modifiers = (),
-            command       = sequence.rotate(True).create('Right Shift + ]', 'Right Shift + [')
+            command       = 'Left Alt + W'
 
         )
 
@@ -305,10 +298,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Caution Panel Test/Reset Switch Reset",
+            label = "Master caution push-light",
 
             joy_modifiers = (),
-            command       = 'R'
+            command       = 'M'
 
         )
 
@@ -344,10 +337,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "AI Panel Show/Hide",
+            label = "Lighting cockpit interior lamp switch",
 
             joy_modifiers = (),
-            command       = 'Left Win + H'
+            command       = 'K'
 
         )
 
@@ -368,6 +361,24 @@ def x52_pro_mapping():
 
         action(
 
+            label = "Autopilot Pitch hold",
+
+            joy_modifiers = (),
+            command       = 'Left Shift + P'
+
+        ),
+
+        action(
+
+            label = "UV-26 Stop dispensing",
+
+            joy_modifiers = (modifier_pinkie),
+            command       = 'Delete'
+
+        ),
+        
+        action(
+
             label = "SRS Radio Bind",
 
             joy_modifiers = (modifier_clutch),
@@ -380,6 +391,15 @@ def x52_pro_mapping():
     # ~~[ STICK / POV BTN 20 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat RIGHT 
     x52_pro.button(20).map_to(
 
+        action(
+
+            label = "Autopilot Heading hold",
+
+            joy_modifiers = (),
+            command       = 'Left Shift + H'
+
+        ),
+        
         action(
 
             label = "SRS Radio Bind",
@@ -396,10 +416,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Flare Dispense Button",
+            label = "Autopilot Altitude hold",
+
+            joy_modifiers = (),
+            command       = 'Left Shift + A'
+
+        ),
+
+        action(
+
+            label = "UV-26 Start dispensing",
 
             joy_modifiers = (modifier_pinkie),
-            command       = 'Left Control + C'
+            command       = 'Insert'
 
         ),
         
@@ -417,6 +446,15 @@ def x52_pro_mapping():
     # ~~[ STICK / POV BTN 22 ]~~>>    POV / STICK   [TOP LEFT | 4-Way] --- Hat LEFT 
     x52_pro.button(22).map_to(
 
+        action(
+
+            label = "Autopilot Bank hold",
+
+            joy_modifiers = (),
+            command       = 'Left Shift + B'
+
+        ),
+        
         action(
 
             label = "SRS Radio Bind",
@@ -438,10 +476,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Rocket Pair Increase", speech_text="Rocket Increase",
+            label = "Weapon selection outward stations", speech_text="Outward stations",
 
             joy_modifiers = (),
-            command       = 'Right Control + ]'
+            command       = 'Y'
+
+        ),
+
+        action(
+
+            label = "Engage/Disengage Route Mode", speech_text="Route Mode",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'R'
 
         )
 
@@ -453,10 +500,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Armament Selector Down", speech_text="Rocket",
+            label = "Weapon system control switch Manual/Auto", speech_text="Weapon mode switch",
 
             joy_modifiers = (),
-            command       = 'Right Alt + ]'
+            command       = 'A'
 
         )
 
@@ -468,10 +515,19 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Rocket Pair Decrease", speech_text="Rocket Decrease",
+            label = "Weapon selection inward stations", speech_text="Inward stations",
 
             joy_modifiers = (),
-            command       = 'Right Control + ['
+            command       = 'I'
+
+        ),
+
+        action(
+
+            label = "Engage Descent Mode",
+
+            joy_modifiers = (modifier_clutch),
+            command       = 'D'
 
         )
 
@@ -483,10 +539,10 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Armament Selector Up", speech_text="Gun",
+            label = "Gun Select", speech_text="GUN",
 
             joy_modifiers = (),
-            command       = 'Right Alt + ['
+            command       = 'C'
 
         )
 
@@ -504,10 +560,28 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Search light Extend",
+            label = "KU-31 Shkval slew up",
+
+            joy_modifiers = (),
+            command       = ';'
+
+        ),
+
+        action(
+
+            label = "Shkval Narrow View 23x",
+
+            joy_modifiers = (modifier_clutch),
+            command       = '='
+
+        ),
+
+        action(
+
+            label = "Spot light up",
 
             joy_modifiers = (modifier_pinkie),
-            command       = '8'
+            command       = 'Right Control + ;'
 
         )
 
@@ -518,10 +592,28 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Search light Right",
+            label = "KU-31 Shkval slew right",
+
+            joy_modifiers = (),
+            command       = '/'
+
+        ),
+
+        action(
+
+            label = "TV Target frame Increase size",
+
+            joy_modifiers = (modifier_clutch),
+            command       = ']'
+
+        ),
+
+        action(
+
+            label = "Spot light right",
 
             joy_modifiers = (modifier_pinkie),
-            command       = '0'
+            command       = 'Right Control + /'
 
         )
 
@@ -532,10 +624,28 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Search light Retract",
+            label = "KU-31 Shkval slew down",
+
+            joy_modifiers = (),
+            command       = '.'
+
+        ),
+
+        action(
+
+            label = "Shkval Wide View 7x",
+
+            joy_modifiers = (modifier_clutch),
+            command       = '-'
+
+        ),
+
+        action(
+
+            label = "Spot light down",
 
             joy_modifiers = (modifier_pinkie),
-            command       = '7'
+            command       = 'Right Control + .'
 
         )
 
@@ -546,10 +656,28 @@ def x52_pro_mapping():
 
         action(
 
-            label = "Search light Left",
+            label = "KU-31 Shkval slew left",
+
+            joy_modifiers = (),
+            command       = ','
+
+        ),
+
+        action(
+
+            label = "TV Target frame Decrease size",
+
+            joy_modifiers = (modifier_clutch),
+            command       = '['
+
+        ),
+
+        action(
+
+            label = "Spot light left",
 
             joy_modifiers = (modifier_pinkie),
-            command       = '9'
+            command       = 'Right Control + ,'
 
         )
 
@@ -666,7 +794,7 @@ def x52_pro_mapping():
                 #     radius = 0.035 * joy_axis_max
                 # ),
 
-                Filter.MinMax(-0 * joy_axis_max, 1 * joy_axis_max)
+                Filter.MinMax(-0.50 * joy_axis_max, 1 * joy_axis_max)
 
             )
 
@@ -686,7 +814,7 @@ def x52_pro_mapping():
 
         vjoy(0).axis('slider2').filtered_with(
 
-            invert = True,
+            invert = False,
             
             curve_filters = (
                 Filter.MinMax(-1 * joy_axis_max, 1 * joy_axis_max)
