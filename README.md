@@ -48,6 +48,8 @@ It is possible to have subfolders in `/profiles/` to hold profiles for organizat
 ***Remark:*** \_\_init\_\_.py is a necessary file to be present for each folder leading to a profile (starting from `/profiles/`). This file is an empty file. The software will automatically create this file for you and you should not delete it (it will be created again automatically).
 
 ## Setting up a profile: how it works
+A profile is a `.py` file built in a special way and living in `/profiles/` or any of its subfolders.
+
 Take a look at [_SYNTAX_REFERENCE.txt](./profiles/_SYNTAX_REFERENCE.txt), [__TEMPLATE.py](./profiles/__TEMPLATE.py) and also take a look at a created profile in the profiles folder to get an idea of how to build a mapping. The main idea is you create a joystick instance with `joy(joy_name, joy_axis_max)` in a `_mapping` function and specify mappings on it. Once finished, you return the joystick instance.
 
 The name of a function building a mapping must end with `_mapping` and anything can be written before. The [profile loader](./src/loader/profile_loader.py) will handle the rest and doesn't care what is written before `_mapping`.
@@ -82,6 +84,13 @@ The name of a function building a mapping must end with `_mapping` and anything 
     - Min/Max
   - Threshold action (available, but needs work)
   - Transfer range (available, but needs work)
+
+### **Profile pretty print**
+You can specify a pretty text to be shown on notifications for your loaded profile. Instead of showing the filename (that may contain underscores or anything you decided) you can show a custom string. In order to do so, you just need to add the following characters at the first line of a profile file: `#:`
+
+For instance, a first line of `#: Huey` in `DCS/Helicopters/UH_1H.py` will show `Huey` in notifications instead of `Huey_UH_1H`.
+
+Blank spaces can be inserted before and after the custom string (they will be stripped).
   
 ## Selecting a profile
 Profile selection is done from the file `profile_selected.txt`. This file lives at the root (same folder as `main.py`).
