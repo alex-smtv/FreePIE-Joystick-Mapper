@@ -68,7 +68,9 @@ class ProfileFileWatcher(threading.Thread):
             # If last line is not a valid profile file, no profile can be loaded so its an error
             if potential_profile is None or not os.path.isfile(potential_selected_file):
                 message = 'The following profile is selected, but could not be found: ' + potential_selected_file
-                raise Exception(message)
+                FreePieVars.diagnostics.debug(message)
+                FreePieVars.diagnostics.notify(message)
+                return
             
             # If the selected profile file is the same as the current active profile, then nothing to do
             elif potential_selected_file == self._active_profile_path:
@@ -106,6 +108,10 @@ class ProfileFileWatcher(threading.Thread):
         
         # If profile selection has not changed, then check whether the active selected profile has changed
         else:
+            # Occurs at first run with invalid profile selection: no profile path exists yet
+            if self._active_profile_path is None:
+                return
+            
             stamp = os.stat(self._active_profile_path).st_mtime
             if stamp != self._cached_selected_profile_stamp:
                 self._generate_pretty_profile_print()
