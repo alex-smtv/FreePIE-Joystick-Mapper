@@ -25,8 +25,9 @@ class ProfileFileWatcher(threading.Thread):
         self._raw_profile_print    = None
 
         if not os.path.isfile(self._profile_selection_path):
-            message = 'The following file is missing: ' + self._profile_selection_path
+            message = 'Profile Selection Watcher >> The following file is missing: ' + self._profile_selection_path
             FreePieVars.diagnostics.debug(message)
+            FreePieVars.diagnostics.notify(message)
             raise Exception(message)
 
     # Terminate the work of the thread
@@ -68,7 +69,7 @@ class ProfileFileWatcher(threading.Thread):
             
             # If last line is not a valid profile file, no profile can be loaded so its an error
             if potential_profile is None or not os.path.isfile(potential_selected_file):
-                message = 'The following profile is selected, but could not be found: ' + potential_selected_file
+                message = 'Profile Selection Watcher >> The following profile is selected, but could not be found: ' + potential_selected_file
                 FreePieVars.diagnostics.debug(message)
                 FreePieVars.diagnostics.notify(message)
                 return
@@ -161,7 +162,9 @@ class ProfileFileWatcher(threading.Thread):
                 time.sleep(1)
 
         except Exception as e:
-            FreePieVars.diagnostics.debug("Profile Selection Watcher Thread has encountered an error: " + str(e))
+            message = "Profile Selection Watcher Thread has encountered an error: " + str(e)
+            FreePieVars.diagnostics.debug(message)
+            FreePieVars.diagnostics.notify(message)
             raise e
 
 class ProfileLoader:
@@ -192,6 +195,7 @@ class ProfileLoader:
             if init_counter == 10:
                 e = Exception("The profile loader failed to acknowledge the profile watcher initialization.")
                 FreePieVars.diagnostics.debug(str(e))
+                FreePieVars.diagnostics.notify(str(e))
 
                 raise e
 
