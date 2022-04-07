@@ -72,6 +72,11 @@ class ProfileFileWatcher(threading.Thread):
                 message = 'Profile Selection Watcher >> The following profile is selected, but could not be found: ' + potential_selected_file
                 FreePieVars.diagnostics.debug(message)
                 FreePieVars.diagnostics.notify(message)
+
+                self._is_profile_selection_changed = True
+                self._active_profile = None
+                self._active_profile_path = None
+                self._pretty_profile_print = None
                 return
             
             # If the selected profile file is the same as the current active profile, then nothing to do
@@ -204,45 +209,50 @@ class ProfileLoader:
     def _profile_load(self, profile_file_name, pretty_profile_print = None):
         # TODO: Check FreePieVars is correctly setup, this handle the case where the user is modifying a line he shouldn't
 
-        profile_module = 'profiles.' + profile_file_name
+        # None case: a default state will be loaded (no mappings)
+        if profile_file_name is None:
+            self.joys_mappings = []
 
-        # Reload a profile already loaded in FreePie so we can account for any change made
-        # in the profile.
-        # WARNING: be mindful of reload subtlety https://stackoverflow.com/a/7274356
-        # From all the registered modules, if the module is related to the profile we need then reload it.
-        for key, value in sys.modules.items():
-            if value is not None and profile_module in str(value):
-                reload(sys.modules[key])
+        else:
+            profile_module = 'profiles.' + profile_file_name
 
-        exec 'import ' + profile_module
+            # Reload a profile already loaded in FreePie so we can account for any change made
+            # in the profile.
+            # WARNING: be mindful of reload subtlety https://stackoverflow.com/a/7274356
+            # From all the registered modules, if the module is related to the profile we need then reload it.
+            for key, value in sys.modules.items():
+                if value is not None and profile_module in str(value):
+                    reload(sys.modules[key])
 
-        candidates_func = []
+            exec 'import ' + profile_module
 
-        for member in dir(eval(profile_module)):
-            member_access = eval(profile_module + '.' + member)
+            candidates_func = []
 
-            if member.endswith('_mapping') and callable(member_access):
-                candidates_func.append(member_access)
+            for member in dir(eval(profile_module)):
+                member_access = eval(profile_module + '.' + member)
 
-        joys_mappings = []
+                if member.endswith('_mapping') and callable(member_access):
+                    candidates_func.append(member_access)
 
-        for mapping_func in candidates_func:
-            joys_mappings.append(
-                mapping_func().build(
-                    FreePieVars.joysticks, 
-                    FreePieVars.vjoys, 
-                    FreePieVars.keyboard, 
-                    FreePieVars.speech
+            joys_mappings = []
+
+            for mapping_func in candidates_func:
+                joys_mappings.append(
+                    mapping_func().build(
+                        FreePieVars.joysticks, 
+                        FreePieVars.vjoys, 
+                        FreePieVars.keyboard, 
+                        FreePieVars.speech
+                    )
                 )
-            )
 
-        self.joys_mappings = tuple_it_if_needed(joys_mappings)
+            self.joys_mappings = tuple_it_if_needed(joys_mappings)
 
-        profile_print = profile_file_name if pretty_profile_print is None else pretty_profile_print
-        message = 'Profile ' + profile_print + ' loaded.'
+            profile_print = profile_file_name if pretty_profile_print is None else pretty_profile_print
+            message = 'Profile ' + profile_print + ' loaded.'
 
-        FreePieVars.diagnostics.notify(message)
-        FreePieVars.diagnostics.debug(message)
+            FreePieVars.diagnostics.notify(message)
+            FreePieVars.diagnostics.debug(message)
 
         # At end free up the memory
         gc.collect()
