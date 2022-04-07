@@ -9,6 +9,7 @@ class ProfileFileWatcher(threading.Thread):
         self.args           = args
         self.kwargs         = kwargs
         self._is_keep_alive = True
+        self._is_first_run  = True
 
         self._profile_selection_path = FreePieVars.root_script_path + "\profile_selected.txt"
         self._cached_profile_selection_stamp = 0
@@ -143,6 +144,9 @@ class ProfileFileWatcher(threading.Thread):
 
         self._pretty_profile_print = print_format
 
+    def is_initialized(self):
+        return not self._is_first_run
+
     def run(self):
         try:
             while self._is_keep_alive:
@@ -151,6 +155,9 @@ class ProfileFileWatcher(threading.Thread):
                 if not self._is_profile_selection_changed:
                     self._watch_profile()
 
+                if self._is_first_run:
+                    self._is_first_run = False
+                
                 time.sleep(1)
 
         except Exception as e:
@@ -173,6 +180,21 @@ class ProfileLoader:
         )
 
         self._profile_watcher_thread.start()
+
+        init_counter = 0
+
+        # Check the watcher thread has run its first pass to initialize its state by reading the storage
+        while not self._profile_watcher_thread.is_initialized():
+            init_counter += 1
+            time.sleep(1)
+            
+            # If 10 seconds elapsed we force abort (something unusual is happening)
+            if init_counter == 10:
+                e = Exception("The profile loader failed to acknowledge the profile watcher initialization.")
+                FreePieVars.diagnostics.debug(str(e))
+
+                raise e
+
         self.joys_mappings = []
 
     def _profile_load(self, profile_file_name, pretty_profile_print = None):
